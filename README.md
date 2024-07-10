@@ -9,7 +9,7 @@ An example repository showing how to leverage Kafka to stream your data and save
    - Logs are saved in the `run_logs` directory.
 
 2. **Then run [kafka-redshift-connector-executer.sh](kafka-redshift-connector-executer.sh):**
-   - This script will install required packages, set up the Kafka Connect Redshift Sink Connector, and consume messages from the `client` topic.
+   - This script will install required packages, set up the Kafka Connect Redshift Sink Connector, and consume messages from the topics that are correctly defined within the [parameters.toml](parameters.toml) schema section.
    - If this script fails, open the files and run each part individually to troubleshoot.
 
 ## Troubleshooting
