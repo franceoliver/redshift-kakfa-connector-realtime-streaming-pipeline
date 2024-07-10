@@ -3,6 +3,7 @@ venv/
 delta_tables/
 run_logs/
 redshift-kafka-connector/kafka_2.13-3.1.0/logs/
+.DS_Store
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
