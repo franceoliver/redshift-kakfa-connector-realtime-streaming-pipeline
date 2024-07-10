@@ -1,7 +1,11 @@
 #!/bin/bash
 
-# Create a directory for logs
-mkdir -p run_logs
+# Create or clean the run_logs directory
+if [ -d "run_logs" ]; then
+  rm -r run_logs/*
+else
+  mkdir run_logs
+fi
 
 # Stop containers
 docker-compose down > run_logs/docker-compose-down.log 2>&1
