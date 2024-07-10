@@ -10,7 +10,7 @@ An example repository showing how to leverage Kafka to stream your data and save
 
 2. **Then run [kafka-redshift-connector-executer.sh](kafka-redshift-connector-executer.sh):**
    - This script will install required packages, set up the Kafka Connect Redshift Sink Connector, and consume messages from the topics that are correctly defined within the [parameters.toml](parameters.toml) schema section.
-   - All values will currently be in a string due to the publisher set up. Altering this is beyond the scope of this demo repo.
+     - All values will currently be in a string due to the publisher set up. Altering this is beyond the scope of this demo repo.
    - If this script fails, open the files and run each part individually to troubleshoot.
 
 ## Troubleshooting
