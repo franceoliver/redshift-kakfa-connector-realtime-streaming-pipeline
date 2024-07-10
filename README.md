@@ -1,5 +1,5 @@
-# real_time_streaming_pipeline
-An example repository showing how to leverage Kafka to stream your data
+# redshift-kakfa-connector-realtime-streaming-pipeline
+An example repository showing how to leverage Kafka to stream your data and save it to your dwh (Redshift)
 
 ## Instructions
 
