@@ -10,7 +10,8 @@ else
 fi
 
 # Consume messages from the 'client' topic from the beginning
-kcat -C -b localhost:9092 -t client -o beginning -e -K
+kcat -C -b localhost:9092 -t client -o beginning -e -K,
+
 
 # Function to check if a port is in use and kill the process using it
 kill_port() {

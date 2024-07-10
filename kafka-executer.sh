@@ -24,4 +24,4 @@ python3 publisher.py > run_logs/publisher.log 2>&1 &
 
 # Print the current topics output
 sleep 15
-kcat -C -b localhost:9092 -t client -o beginning -e > run_logs/kcat.log 2>&1
+kcat -C -b localhost:9092 -t client -o beginning -e -K, > run_logs/kcat.log 2>&1
