@@ -24,6 +24,10 @@ kill_port() {
   fi
 }
 
+# Run the create tables from the topic schemas passed in
+chmod +x create-topic-tables.sh
+./create-topic-tables.sh
+
 # Check and kill any process using port 8083
 kill_port 8083
 

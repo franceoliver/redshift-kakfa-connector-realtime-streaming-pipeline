@@ -14,3 +14,52 @@ delta_path = "./delta_tables"
 url = "jdbc:redshift://testworkgroup.767397751477.ap-southeast-2.redshift-serverless.amazonaws.com:5439/dev"
 user = "admin"
 password = "My_Secure_Password_1"
+
+[schemas]
+schemas = """
+{
+    "client": { \
+        "type": "struct", \
+        "fields": [ \
+            {"type": "string", "optional": false, "field": "id"}, \
+            {"type": "string", "optional": true, "field": "first_name"}, \
+            {"type": "string", "optional": true, "field": "last_name"} \
+        ], \
+        "optional": false, \
+        "name": "client" \
+    }, \
+    "department": { \
+        "type": "struct", \
+        "fields": [ \
+            {"type": "int32", "optional": false, "field": "id"}, \
+            {"type": "string", "optional": true, "field": "name"} \
+        ], \
+        "optional": false, \
+        "name": "department" \
+    }, \
+    "employee": { \
+        "type": "struct", \
+        "fields": [ \
+            {"type": "int32", "optional": false, "field": "id"}, \
+            {"type": "string", "optional": true, "field": "first_name"}, \
+            {"type": "string", "optional": true, "field": "last_name"}, \
+            {"type": "int32", "optional": false, "field": "department_id"} \
+        ], \
+        "optional": false, \
+        "name": "employee" \
+    }, \
+    "sale": { \
+        "type": "struct", \
+        "fields": [ \
+            {"type": "int32", "optional": false, "field": "id"}, \
+            {"type": "int32", "optional": false, "field": "employee_id"}, \
+            {"type": "int32", "optional": false, "field": "client_id"}, \
+            {"type": "string", "optional": false, "field": "date"}, \
+            {"type": "string", "optional": true, "field": "region"}, \
+            {"type": "float", "optional": true, "field": "sale"} \
+        ], \
+        "optional": false, \
+        "name": "sale" \
+    } \
+}
+"""

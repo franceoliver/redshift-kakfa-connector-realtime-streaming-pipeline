@@ -15,52 +15,7 @@ bootstrap_servers = config["general"]["bootstrap_servers"]
 topics = config["general"]["topics"]
 raw_path = config["publisher"]["raw_path"]
 batch_size = config["publisher"]["batch_size"]
-
-schemas = {
-    "client": {
-        "type": "struct",
-        "fields": [
-            {"type": "string", "optional": False, "field": "id"},
-            {"type": "string", "optional": True, "field": "first_name"},
-            {"type": "string", "optional": True, "field": "last_name"}
-        ],
-        "optional": False,
-        "name": "client"
-    },
-    "department": {
-        "type": "struct",
-        "fields": [
-            {"type": "int32", "optional": False, "field": "id"},
-            {"type": "string", "optional": True, "field": "name"}
-        ],
-        "optional": False,
-        "name": "department"
-    },
-    "employee": {
-        "type": "struct",
-        "fields": [
-            {"type": "int32", "optional": False, "field": "id"},
-            {"type": "string", "optional": True, "field": "first_name"},
-            {"type": "string", "optional": True, "field": "last_name"},
-            {"type": "int32", "optional": False, "field": "department_id"}
-        ],
-        "optional": False,
-        "name": "employee"
-    },
-    "sale": {
-        "type": "struct",
-        "fields": [
-            {"type": "int32", "optional": False, "field": "id"},
-            {"type": "int32", "optional": False, "field": "employee_id"},
-            {"type": "int32", "optional": False, "field": "client_id"},
-            {"type": "string", "optional": False, "field": "date"},
-            {"type": "string", "optional": True, "field": "region"},
-            {"type": "float", "optional": True, "field": "sale"}
-        ],
-        "optional": False,
-        "name": "sale"
-    }
-}
+schemas = json.loads(config["schemas"]["schemas"])
 
 def create_producer(bootstrap_servers):
     return KafkaProducer(
