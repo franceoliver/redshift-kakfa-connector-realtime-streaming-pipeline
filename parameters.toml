@@ -31,8 +31,8 @@ schemas = """
     "department": { \
         "type": "struct", \
         "fields": [ \
-            {"type": "int32", "optional": false, "field": "id"}, \
-            {"type": "string", "optional": true, "field": "name"} \
+            {"type": "string", "optional": false, "field": "id"}, \
+            {"type": "string", "optional": true, "field": "department"} \
         ], \
         "optional": false, \
         "name": "department" \
@@ -40,10 +40,10 @@ schemas = """
     "employee": { \
         "type": "struct", \
         "fields": [ \
-            {"type": "int32", "optional": false, "field": "id"}, \
+            {"type": "string", "optional": false, "field": "id"}, \
             {"type": "string", "optional": true, "field": "first_name"}, \
             {"type": "string", "optional": true, "field": "last_name"}, \
-            {"type": "int32", "optional": false, "field": "department_id"} \
+            {"type": "string", "optional": false, "field": "department_id"} \
         ], \
         "optional": false, \
         "name": "employee" \
@@ -51,12 +51,12 @@ schemas = """
     "sale": { \
         "type": "struct", \
         "fields": [ \
-            {"type": "int32", "optional": false, "field": "id"}, \
-            {"type": "int32", "optional": false, "field": "employee_id"}, \
-            {"type": "int32", "optional": false, "field": "client_id"}, \
+            {"type": "string", "optional": false, "field": "id"}, \
+            {"type": "string", "optional": false, "field": "employee_id"}, \
+            {"type": "string", "optional": false, "field": "client_id"}, \
             {"type": "string", "optional": false, "field": "date"}, \
             {"type": "string", "optional": true, "field": "region"}, \
-            {"type": "float", "optional": true, "field": "sale"} \
+            {"type": "string", "optional": true, "field": "sale"} \
         ], \
         "optional": false, \
         "name": "sale" \

@@ -1,0 +1,1563 @@
+[2024-07-10 11:00:18,556] INFO [redshift-sink-connector|task-0] [Consumer clientId=connector-consumer-redshift-sink-connector-0, groupId=connect-redshift-sink-connector] Successfully joined group with generation Generation{generationId=2, memberId='connector-consumer-redshift-sink-connector-0-4a487400-f749-4ed0-a2e3-03b7ae4306dc', protocol='range'} (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:595)
+[2024-07-10 11:00:18,572] INFO [redshift-sink-connector|task-0] [Consumer clientId=connector-consumer-redshift-sink-connector-0, groupId=connect-redshift-sink-connector] Finished assignment for group at generation 2: {connector-consumer-redshift-sink-connector-0-4a487400-f749-4ed0-a2e3-03b7ae4306dc=Assignment(partitions=[client-0])} (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:652)
+[2024-07-10 11:00:18,615] INFO [redshift-sink-connector|task-0] [Consumer clientId=connector-consumer-redshift-sink-connector-0, groupId=connect-redshift-sink-connector] Successfully synced group in generation Generation{generationId=2, memberId='connector-consumer-redshift-sink-connector-0-4a487400-f749-4ed0-a2e3-03b7ae4306dc', protocol='range'} (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:761)
+[2024-07-10 11:00:18,616] INFO [redshift-sink-connector|task-0] [Consumer clientId=connector-consumer-redshift-sink-connector-0, groupId=connect-redshift-sink-connector] Notifying assignor about the new Assignment(partitions=[client-0]) (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:279)
+[2024-07-10 11:00:18,618] INFO [redshift-sink-connector|task-0] [Consumer clientId=connector-consumer-redshift-sink-connector-0, groupId=connect-redshift-sink-connector] Adding newly assigned partitions: client-0 (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:291)
+[2024-07-10 11:00:18,650] INFO [redshift-sink-connector|task-0] [Consumer clientId=connector-consumer-redshift-sink-connector-0, groupId=connect-redshift-sink-connector] Setting offset for partition client-0 to the committed offset FetchPosition{offset=6, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null)], epoch=0}} (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:844)
+[2024-07-10 11:00:25,637] INFO [redshift-sink-connector|task-0] JdbcDbWriter Connected (io.confluent.connect.jdbc.sink.JdbcDbWriter:56)
+[2024-07-10 11:00:25,856] INFO [redshift-sink-connector|task-0] Checking Generic dialect for existence of TABLE "client" (io.confluent.connect.jdbc.dialect.GenericDatabaseDialect:595)
+[2024-07-10 11:00:25,899] INFO [redshift-sink-connector|task-0] Using Generic dialect TABLE "client" present (io.confluent.connect.jdbc.dialect.GenericDatabaseDialect:603)
+[2024-07-10 11:00:26,034] INFO [redshift-sink-connector|task-0] Checking Generic dialect for type of TABLE "client" (io.confluent.connect.jdbc.dialect.GenericDatabaseDialect:889)
+[2024-07-10 11:00:26,067] INFO [redshift-sink-connector|task-0] Setting metadata for table "client" to Table{name='"client"', type=TABLE columns=[Column{'first_name', isPrimaryKey=false, allowsNull=true, sqlType=varchar}, Column{'last_name', isPrimaryKey=false, allowsNull=true, sqlType=varchar}, Column{'id', isPrimaryKey=false, allowsNull=false, sqlType=varchar}]} (io.confluent.connect.jdbc.util.TableDefinitions:64)
+[2024-07-10 11:01:27,294] INFO Kafka Connect standalone worker initializing ... (org.apache.kafka.connect.cli.ConnectStandalone:68)
+[2024-07-10 11:01:27,304] INFO WorkerInfo values: 
+	jvm.args = -Xms256M, -Xmx2G, -XX:+UseG1GC, -XX:MaxGCPauseMillis=20, -XX:InitiatingHeapOccupancyPercent=35, -XX:+ExplicitGCInvokesConcurrent, -XX:MaxInlineLevel=15, -Djava.awt.headless=true, -Dcom.sun.management.jmxremote, -Dcom.sun.management.jmxremote.authenticate=false, -Dcom.sun.management.jmxremote.ssl=false, -Dkafka.logs.dir=/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../logs, -Dlog4j.configuration=file:../kafka_2.13-3.1.0/bin/../config/connect-log4j.properties
+	jvm.spec = Oracle Corporation, Java HotSpot(TM) 64-Bit Server VM, 1.8.0_351, 25.351-b10
+	jvm.classpath = /Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/activation-1.1.1.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/aopalliance-repackaged-2.6.1.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/argparse4j-0.7.0.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/audience-annotations-0.5.0.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/commons-cli-1.4.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/commons-lang3-3.8.1.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/connect-api-3.1.0.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/connect-basic-auth-extension-3.1.0.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/connect-file-3.1.0.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/connect-json-3.1.0.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/connect-mirror-3.1.0.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/connect-mirror-client-3.1.0.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/connect-runtime-3.1.0.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/connect-transforms-3.1.0.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/hk2-api-2.6.1.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/hk2-locator-2.6.1.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/hk2-utils-2.6.1.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/jackson-annotations-2.12.3.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/jackson-core-2.12.3.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/jackson-databind-2.12.3.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/jackson-dataformat-csv-2.12.3.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/jackson-datatype-jdk8-2.12.3.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/jackson-jaxrs-base-2.12.3.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/jackson-jaxrs-json-provider-2.12.3.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/jackson-module-jaxb-annotations-2.12.3.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/jackson-module-scala_2.13-2.12.3.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/jakarta.activation-api-1.2.1.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/jakarta.annotation-api-1.3.5.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/jakarta.inject-2.6.1.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/jakarta.validation-api-2.0.2.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/jakarta.ws.rs-api-2.1.6.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/jakarta.xml.bind-api-2.3.2.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/javassist-3.27.0-GA.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/javax.servlet-api-3.1.0.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/javax.ws.rs-api-2.1.1.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/jaxb-api-2.3.0.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/jersey-client-2.34.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/jersey-common-2.34.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/jersey-container-servlet-2.34.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/jersey-container-servlet-core-2.34.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/jersey-hk2-2.34.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/jersey-server-2.34.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/jetty-client-9.4.43.v20210629.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/jetty-continuation-9.4.43.v20210629.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/jetty-http-9.4.43.v20210629.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/jetty-io-9.4.43.v20210629.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/jetty-security-9.4.43.v20210629.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/jetty-server-9.4.43.v20210629.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/jetty-servlet-9.4.43.v20210629.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/jetty-servlets-9.4.43.v20210629.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/jetty-util-9.4.43.v20210629.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/jetty-util-ajax-9.4.43.v20210629.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/jline-3.12.1.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/jopt-simple-5.0.4.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/jose4j-0.7.8.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/kafka-clients-3.1.0.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/kafka-log4j-appender-3.1.0.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/kafka-metadata-3.1.0.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/kafka-raft-3.1.0.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/kafka-server-common-3.1.0.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/kafka-shell-3.1.0.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/kafka-storage-3.1.0.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/kafka-storage-api-3.1.0.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/kafka-streams-3.1.0.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/kafka-streams-examples-3.1.0.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/kafka-streams-scala_2.13-3.1.0.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/kafka-streams-test-utils-3.1.0.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/kafka-tools-3.1.0.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/kafka_2.13-3.1.0.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/log4j-1.2.17.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/lz4-java-1.8.0.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/maven-artifact-3.8.1.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/metrics-core-2.2.0.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/metrics-core-4.1.12.1.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/netty-buffer-4.1.68.Final.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/netty-codec-4.1.68.Final.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/netty-common-4.1.68.Final.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/netty-handler-4.1.68.Final.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/netty-resolver-4.1.68.Final.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/netty-transport-4.1.68.Final.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/netty-transport-native-epoll-4.1.68.Final.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/netty-transport-native-unix-common-4.1.68.Final.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/osgi-resource-locator-1.0.3.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/paranamer-2.8.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/plexus-utils-3.2.1.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/reflections-0.9.12.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/rocksdbjni-6.22.1.1.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/scala-collection-compat_2.13-2.4.4.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/scala-java8-compat_2.13-1.0.0.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/scala-library-2.13.6.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/scala-logging_2.13-3.9.3.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/scala-reflect-2.13.6.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/slf4j-api-1.7.30.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/slf4j-log4j12-1.7.30.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/snappy-java-1.1.8.4.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/trogdor-3.1.0.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/zookeeper-3.6.3.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/zookeeper-jute-3.6.3.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/zstd-jni-1.5.0-4.jar
+	os.spec = Mac OS X, x86_64, 13.1
+	os.vcpus = 8
+ (org.apache.kafka.connect.runtime.WorkerInfo:71)
+[2024-07-10 11:01:27,533] INFO Scanning for plugin classes. This might take a moment ... (org.apache.kafka.connect.cli.ConnectStandalone:77)
+[2024-07-10 11:01:27,570] INFO Loading plugin from: /Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../plugins/confluent-kafka-connect (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:265)
+[2024-07-10 11:01:28,110] INFO Registered loader: PluginClassLoader{pluginLocation=file:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../plugins/confluent-kafka-connect/} (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:288)
+[2024-07-10 11:01:28,112] INFO Added plugin 'io.confluent.connect.jdbc.JdbcSinkConnector' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:01:28,112] INFO Added plugin 'io.confluent.connect.jdbc.JdbcSourceConnector' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:01:28,112] INFO Added plugin 'org.apache.kafka.connect.connector.policy.AllConnectorClientConfigOverridePolicy' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:01:28,112] INFO Added plugin 'org.apache.kafka.connect.connector.policy.PrincipalConnectorClientConfigOverridePolicy' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:01:28,112] INFO Added plugin 'org.apache.kafka.connect.connector.policy.NoneConnectorClientConfigOverridePolicy' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:01:29,728] INFO Registered loader: sun.misc.Launcher$AppClassLoader@764c12b6 (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:288)
+[2024-07-10 11:01:29,729] INFO Added plugin 'org.apache.kafka.connect.mirror.MirrorSourceConnector' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:01:29,729] INFO Added plugin 'org.apache.kafka.connect.file.FileStreamSinkConnector' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:01:29,729] INFO Added plugin 'org.apache.kafka.connect.file.FileStreamSourceConnector' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:01:29,729] INFO Added plugin 'org.apache.kafka.connect.tools.SchemaSourceConnector' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:01:29,730] INFO Added plugin 'org.apache.kafka.connect.tools.MockSourceConnector' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:01:29,731] INFO Added plugin 'org.apache.kafka.connect.mirror.MirrorCheckpointConnector' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:01:29,731] INFO Added plugin 'org.apache.kafka.connect.tools.VerifiableSinkConnector' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:01:29,731] INFO Added plugin 'org.apache.kafka.connect.tools.VerifiableSourceConnector' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:01:29,731] INFO Added plugin 'org.apache.kafka.connect.tools.MockSinkConnector' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:01:29,731] INFO Added plugin 'org.apache.kafka.connect.mirror.MirrorHeartbeatConnector' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:01:29,731] INFO Added plugin 'org.apache.kafka.connect.tools.MockConnector' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:01:29,731] INFO Added plugin 'org.apache.kafka.connect.converters.FloatConverter' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:01:29,731] INFO Added plugin 'org.apache.kafka.connect.converters.DoubleConverter' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:01:29,731] INFO Added plugin 'org.apache.kafka.connect.converters.ByteArrayConverter' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:01:29,732] INFO Added plugin 'org.apache.kafka.connect.converters.LongConverter' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:01:29,732] INFO Added plugin 'org.apache.kafka.connect.converters.IntegerConverter' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:01:29,732] INFO Added plugin 'org.apache.kafka.connect.json.JsonConverter' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:01:29,733] INFO Added plugin 'org.apache.kafka.connect.storage.StringConverter' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:01:29,733] INFO Added plugin 'org.apache.kafka.connect.converters.ShortConverter' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:01:29,733] INFO Added plugin 'org.apache.kafka.connect.storage.SimpleHeaderConverter' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:01:29,734] INFO Added plugin 'org.apache.kafka.connect.transforms.ReplaceField$Value' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:01:29,734] INFO Added plugin 'org.apache.kafka.connect.transforms.SetSchemaMetadata$Value' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:01:29,734] INFO Added plugin 'org.apache.kafka.connect.transforms.ReplaceField$Key' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:01:29,734] INFO Added plugin 'org.apache.kafka.connect.transforms.Filter' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:01:29,734] INFO Added plugin 'org.apache.kafka.connect.transforms.InsertField$Value' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:01:29,734] INFO Added plugin 'org.apache.kafka.connect.transforms.HeaderFrom$Key' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:01:29,734] INFO Added plugin 'org.apache.kafka.connect.transforms.TimestampConverter$Key' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:01:29,735] INFO Added plugin 'org.apache.kafka.connect.transforms.MaskField$Value' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:01:29,735] INFO Added plugin 'org.apache.kafka.connect.transforms.TimestampRouter' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:01:29,735] INFO Added plugin 'org.apache.kafka.connect.transforms.RegexRouter' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:01:29,735] INFO Added plugin 'org.apache.kafka.connect.transforms.HoistField$Value' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:01:29,735] INFO Added plugin 'org.apache.kafka.connect.transforms.ValueToKey' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:01:29,735] INFO Added plugin 'org.apache.kafka.connect.transforms.MaskField$Key' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:01:29,735] INFO Added plugin 'org.apache.kafka.connect.transforms.DropHeaders' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:01:29,735] INFO Added plugin 'org.apache.kafka.connect.transforms.Cast$Key' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:01:29,735] INFO Added plugin 'org.apache.kafka.connect.transforms.Cast$Value' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:01:29,735] INFO Added plugin 'org.apache.kafka.connect.runtime.PredicatedTransformation' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:01:29,735] INFO Added plugin 'org.apache.kafka.connect.transforms.ExtractField$Key' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:01:29,735] INFO Added plugin 'org.apache.kafka.connect.transforms.Flatten$Value' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:01:29,736] INFO Added plugin 'org.apache.kafka.connect.transforms.InsertHeader' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:01:29,736] INFO Added plugin 'org.apache.kafka.connect.transforms.InsertField$Key' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:01:29,736] INFO Added plugin 'org.apache.kafka.connect.transforms.Flatten$Key' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:01:29,736] INFO Added plugin 'org.apache.kafka.connect.transforms.HeaderFrom$Value' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:01:29,736] INFO Added plugin 'org.apache.kafka.connect.transforms.SetSchemaMetadata$Key' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:01:29,736] INFO Added plugin 'org.apache.kafka.connect.transforms.ExtractField$Value' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:01:29,736] INFO Added plugin 'org.apache.kafka.connect.transforms.TimestampConverter$Value' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:01:29,736] INFO Added plugin 'org.apache.kafka.connect.transforms.HoistField$Key' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:01:29,736] INFO Added plugin 'org.apache.kafka.connect.transforms.predicates.HasHeaderKey' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:01:29,737] INFO Added plugin 'org.apache.kafka.connect.transforms.predicates.RecordIsTombstone' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:01:29,737] INFO Added plugin 'org.apache.kafka.connect.transforms.predicates.TopicNameMatches' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:01:29,737] INFO Added plugin 'org.apache.kafka.common.config.provider.FileConfigProvider' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:01:29,737] INFO Added plugin 'org.apache.kafka.common.config.provider.DirectoryConfigProvider' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:01:29,737] INFO Added plugin 'org.apache.kafka.connect.rest.basic.auth.extension.BasicAuthSecurityRestExtension' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:01:29,740] INFO Added aliases 'JdbcSinkConnector' and 'JdbcSink' to plugin 'io.confluent.connect.jdbc.JdbcSinkConnector' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:462)
+[2024-07-10 11:01:29,741] INFO Added aliases 'JdbcSourceConnector' and 'JdbcSource' to plugin 'io.confluent.connect.jdbc.JdbcSourceConnector' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:462)
+[2024-07-10 11:01:29,741] INFO Added aliases 'FileStreamSinkConnector' and 'FileStreamSink' to plugin 'org.apache.kafka.connect.file.FileStreamSinkConnector' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:462)
+[2024-07-10 11:01:29,742] INFO Added aliases 'FileStreamSourceConnector' and 'FileStreamSource' to plugin 'org.apache.kafka.connect.file.FileStreamSourceConnector' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:462)
+[2024-07-10 11:01:29,742] INFO Added aliases 'MirrorCheckpointConnector' and 'MirrorCheckpoint' to plugin 'org.apache.kafka.connect.mirror.MirrorCheckpointConnector' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:462)
+[2024-07-10 11:01:29,742] INFO Added aliases 'MirrorHeartbeatConnector' and 'MirrorHeartbeat' to plugin 'org.apache.kafka.connect.mirror.MirrorHeartbeatConnector' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:462)
+[2024-07-10 11:01:29,742] INFO Added aliases 'MirrorSourceConnector' and 'MirrorSource' to plugin 'org.apache.kafka.connect.mirror.MirrorSourceConnector' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:462)
+[2024-07-10 11:01:29,743] INFO Added aliases 'MockConnector' and 'Mock' to plugin 'org.apache.kafka.connect.tools.MockConnector' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:462)
+[2024-07-10 11:01:29,743] INFO Added aliases 'MockSinkConnector' and 'MockSink' to plugin 'org.apache.kafka.connect.tools.MockSinkConnector' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:462)
+[2024-07-10 11:01:29,743] INFO Added aliases 'MockSourceConnector' and 'MockSource' to plugin 'org.apache.kafka.connect.tools.MockSourceConnector' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:462)
+[2024-07-10 11:01:29,744] INFO Added aliases 'SchemaSourceConnector' and 'SchemaSource' to plugin 'org.apache.kafka.connect.tools.SchemaSourceConnector' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:462)
+[2024-07-10 11:01:29,744] INFO Added aliases 'VerifiableSinkConnector' and 'VerifiableSink' to plugin 'org.apache.kafka.connect.tools.VerifiableSinkConnector' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:462)
+[2024-07-10 11:01:29,744] INFO Added aliases 'VerifiableSourceConnector' and 'VerifiableSource' to plugin 'org.apache.kafka.connect.tools.VerifiableSourceConnector' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:462)
+[2024-07-10 11:01:29,744] INFO Added aliases 'ByteArrayConverter' and 'ByteArray' to plugin 'org.apache.kafka.connect.converters.ByteArrayConverter' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:462)
+[2024-07-10 11:01:29,744] INFO Added aliases 'DoubleConverter' and 'Double' to plugin 'org.apache.kafka.connect.converters.DoubleConverter' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:462)
+[2024-07-10 11:01:29,744] INFO Added aliases 'FloatConverter' and 'Float' to plugin 'org.apache.kafka.connect.converters.FloatConverter' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:462)
+[2024-07-10 11:01:29,745] INFO Added aliases 'IntegerConverter' and 'Integer' to plugin 'org.apache.kafka.connect.converters.IntegerConverter' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:462)
+[2024-07-10 11:01:29,745] INFO Added aliases 'LongConverter' and 'Long' to plugin 'org.apache.kafka.connect.converters.LongConverter' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:462)
+[2024-07-10 11:01:29,745] INFO Added aliases 'ShortConverter' and 'Short' to plugin 'org.apache.kafka.connect.converters.ShortConverter' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:462)
+[2024-07-10 11:01:29,745] INFO Added aliases 'JsonConverter' and 'Json' to plugin 'org.apache.kafka.connect.json.JsonConverter' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:462)
+[2024-07-10 11:01:29,746] INFO Added aliases 'StringConverter' and 'String' to plugin 'org.apache.kafka.connect.storage.StringConverter' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:462)
+[2024-07-10 11:01:29,746] INFO Added aliases 'ByteArrayConverter' and 'ByteArray' to plugin 'org.apache.kafka.connect.converters.ByteArrayConverter' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:462)
+[2024-07-10 11:01:29,746] INFO Added aliases 'DoubleConverter' and 'Double' to plugin 'org.apache.kafka.connect.converters.DoubleConverter' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:462)
+[2024-07-10 11:01:29,746] INFO Added aliases 'FloatConverter' and 'Float' to plugin 'org.apache.kafka.connect.converters.FloatConverter' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:462)
+[2024-07-10 11:01:29,746] INFO Added aliases 'IntegerConverter' and 'Integer' to plugin 'org.apache.kafka.connect.converters.IntegerConverter' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:462)
+[2024-07-10 11:01:29,746] INFO Added aliases 'LongConverter' and 'Long' to plugin 'org.apache.kafka.connect.converters.LongConverter' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:462)
+[2024-07-10 11:01:29,746] INFO Added aliases 'ShortConverter' and 'Short' to plugin 'org.apache.kafka.connect.converters.ShortConverter' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:462)
+[2024-07-10 11:01:29,746] INFO Added aliases 'JsonConverter' and 'Json' to plugin 'org.apache.kafka.connect.json.JsonConverter' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:462)
+[2024-07-10 11:01:29,749] INFO Added alias 'SimpleHeaderConverter' to plugin 'org.apache.kafka.connect.storage.SimpleHeaderConverter' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:459)
+[2024-07-10 11:01:29,749] INFO Added aliases 'StringConverter' and 'String' to plugin 'org.apache.kafka.connect.storage.StringConverter' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:462)
+[2024-07-10 11:01:29,751] INFO Added aliases 'PredicatedTransformation' and 'Predicated' to plugin 'org.apache.kafka.connect.runtime.PredicatedTransformation' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:462)
+[2024-07-10 11:01:29,752] INFO Added alias 'DropHeaders' to plugin 'org.apache.kafka.connect.transforms.DropHeaders' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:459)
+[2024-07-10 11:01:29,753] INFO Added alias 'Filter' to plugin 'org.apache.kafka.connect.transforms.Filter' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:459)
+[2024-07-10 11:01:29,753] INFO Added alias 'InsertHeader' to plugin 'org.apache.kafka.connect.transforms.InsertHeader' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:459)
+[2024-07-10 11:01:29,753] INFO Added alias 'RegexRouter' to plugin 'org.apache.kafka.connect.transforms.RegexRouter' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:459)
+[2024-07-10 11:01:29,754] INFO Added alias 'TimestampRouter' to plugin 'org.apache.kafka.connect.transforms.TimestampRouter' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:459)
+[2024-07-10 11:01:29,754] INFO Added alias 'ValueToKey' to plugin 'org.apache.kafka.connect.transforms.ValueToKey' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:459)
+[2024-07-10 11:01:29,754] INFO Added alias 'HasHeaderKey' to plugin 'org.apache.kafka.connect.transforms.predicates.HasHeaderKey' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:459)
+[2024-07-10 11:01:29,754] INFO Added alias 'RecordIsTombstone' to plugin 'org.apache.kafka.connect.transforms.predicates.RecordIsTombstone' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:459)
+[2024-07-10 11:01:29,754] INFO Added alias 'TopicNameMatches' to plugin 'org.apache.kafka.connect.transforms.predicates.TopicNameMatches' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:459)
+[2024-07-10 11:01:29,754] INFO Added alias 'BasicAuthSecurityRestExtension' to plugin 'org.apache.kafka.connect.rest.basic.auth.extension.BasicAuthSecurityRestExtension' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:459)
+[2024-07-10 11:01:29,755] INFO Added aliases 'AllConnectorClientConfigOverridePolicy' and 'All' to plugin 'org.apache.kafka.connect.connector.policy.AllConnectorClientConfigOverridePolicy' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:462)
+[2024-07-10 11:01:29,755] INFO Added aliases 'NoneConnectorClientConfigOverridePolicy' and 'None' to plugin 'org.apache.kafka.connect.connector.policy.NoneConnectorClientConfigOverridePolicy' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:462)
+[2024-07-10 11:01:29,755] INFO Added aliases 'PrincipalConnectorClientConfigOverridePolicy' and 'Principal' to plugin 'org.apache.kafka.connect.connector.policy.PrincipalConnectorClientConfigOverridePolicy' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:462)
+[2024-07-10 11:01:29,776] INFO StandaloneConfig values: 
+	access.control.allow.methods = 
+	access.control.allow.origin = 
+	admin.listeners = null
+	bootstrap.servers = [localhost:9092]
+	client.dns.lookup = use_all_dns_ips
+	config.providers = []
+	connector.client.config.override.policy = All
+	header.converter = class org.apache.kafka.connect.storage.SimpleHeaderConverter
+	key.converter = class org.apache.kafka.connect.storage.StringConverter
+	listeners = [http://:8083]
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	offset.flush.interval.ms = 10000
+	offset.flush.timeout.ms = 5000
+	offset.storage.file.filename = /tmp/connect.offsets
+	plugin.path = [../plugins/]
+	response.http.headers.config = 
+	rest.advertised.host.name = null
+	rest.advertised.listener = null
+	rest.advertised.port = null
+	rest.extension.classes = []
+	ssl.cipher.suites = null
+	ssl.client.auth = none
+	ssl.enabled.protocols = [TLSv1.2]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.2
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	task.shutdown.graceful.timeout.ms = 5000
+	topic.creation.enable = true
+	topic.tracking.allow.reset = true
+	topic.tracking.enable = true
+	value.converter = class org.apache.kafka.connect.json.JsonConverter
+ (org.apache.kafka.connect.runtime.standalone.StandaloneConfig:376)
+[2024-07-10 11:01:29,777] INFO Creating Kafka admin client (org.apache.kafka.connect.util.ConnectUtils:49)
+[2024-07-10 11:01:29,780] INFO AdminClientConfig values: 
+	bootstrap.servers = [localhost:9092]
+	client.dns.lookup = use_all_dns_ips
+	client.id = 
+	connections.max.idle.ms = 300000
+	default.api.timeout.ms = 60000
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.2
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+ (org.apache.kafka.clients.admin.AdminClientConfig:376)
+[2024-07-10 11:01:29,899] WARN The configuration 'offset.flush.interval.ms' was supplied but isn't a known config. (org.apache.kafka.clients.admin.AdminClientConfig:384)
+[2024-07-10 11:01:29,901] WARN The configuration 'key.converter.schemas.enable' was supplied but isn't a known config. (org.apache.kafka.clients.admin.AdminClientConfig:384)
+[2024-07-10 11:01:29,901] WARN The configuration 'offset.storage.file.filename' was supplied but isn't a known config. (org.apache.kafka.clients.admin.AdminClientConfig:384)
+[2024-07-10 11:01:29,901] WARN The configuration 'value.converter.schemas.enable' was supplied but isn't a known config. (org.apache.kafka.clients.admin.AdminClientConfig:384)
+[2024-07-10 11:01:29,901] WARN The configuration 'plugin.path' was supplied but isn't a known config. (org.apache.kafka.clients.admin.AdminClientConfig:384)
+[2024-07-10 11:01:29,901] WARN The configuration 'value.converter' was supplied but isn't a known config. (org.apache.kafka.clients.admin.AdminClientConfig:384)
+[2024-07-10 11:01:29,901] WARN The configuration 'key.converter' was supplied but isn't a known config. (org.apache.kafka.clients.admin.AdminClientConfig:384)
+[2024-07-10 11:01:29,904] INFO Kafka version: 3.1.0 (org.apache.kafka.common.utils.AppInfoParser:119)
+[2024-07-10 11:01:29,904] INFO Kafka commitId: 37edeed0777bacb3 (org.apache.kafka.common.utils.AppInfoParser:120)
+[2024-07-10 11:01:29,904] INFO Kafka startTimeMs: 1720573289902 (org.apache.kafka.common.utils.AppInfoParser:121)
+[2024-07-10 11:01:30,241] INFO Kafka cluster ID: Tfo0g0JJSye1151KjlCULA (org.apache.kafka.connect.util.ConnectUtils:65)
+[2024-07-10 11:01:30,245] INFO App info kafka.admin.client for adminclient-1 unregistered (org.apache.kafka.common.utils.AppInfoParser:83)
+[2024-07-10 11:01:30,256] INFO Metrics scheduler closed (org.apache.kafka.common.metrics.Metrics:659)
+[2024-07-10 11:01:30,257] INFO Closing reporter org.apache.kafka.common.metrics.JmxReporter (org.apache.kafka.common.metrics.Metrics:663)
+[2024-07-10 11:01:30,257] INFO Metrics reporters closed (org.apache.kafka.common.metrics.Metrics:669)
+[2024-07-10 11:01:30,273] INFO Logging initialized @3502ms to org.eclipse.jetty.util.log.Slf4jLog (org.eclipse.jetty.util.log:170)
+[2024-07-10 11:01:30,323] INFO Added connector for http://:8083 (org.apache.kafka.connect.runtime.rest.RestServer:117)
+[2024-07-10 11:01:30,324] INFO Initializing REST server (org.apache.kafka.connect.runtime.rest.RestServer:188)
+[2024-07-10 11:01:30,335] INFO jetty-9.4.43.v20210629; built: 2021-06-30T11:07:22.254Z; git: 526006ecfa3af7f1a27ef3a288e2bef7ea9dd7e8; jvm 1.8.0_351-b10 (org.eclipse.jetty.server.Server:375)
+[2024-07-10 11:01:30,368] INFO Started http_8083@30990c1b{HTTP/1.1, (http/1.1)}{0.0.0.0:8083} (org.eclipse.jetty.server.AbstractConnector:331)
+[2024-07-10 11:01:30,369] INFO Started @3598ms (org.eclipse.jetty.server.Server:415)
+[2024-07-10 11:01:30,388] INFO Advertised URI: http://192.168.20.2:8083/ (org.apache.kafka.connect.runtime.rest.RestServer:355)
+[2024-07-10 11:01:30,388] INFO REST server listening at http://192.168.20.2:8083/, advertising URL http://192.168.20.2:8083/ (org.apache.kafka.connect.runtime.rest.RestServer:203)
+[2024-07-10 11:01:30,388] INFO Advertised URI: http://192.168.20.2:8083/ (org.apache.kafka.connect.runtime.rest.RestServer:355)
+[2024-07-10 11:01:30,388] INFO REST admin endpoints at http://192.168.20.2:8083/ (org.apache.kafka.connect.runtime.rest.RestServer:204)
+[2024-07-10 11:01:30,388] INFO Advertised URI: http://192.168.20.2:8083/ (org.apache.kafka.connect.runtime.rest.RestServer:355)
+[2024-07-10 11:01:30,389] INFO Setting up All Policy for ConnectorClientConfigOverride. This will allow all client configurations to be overridden (org.apache.kafka.connect.connector.policy.AllConnectorClientConfigOverridePolicy:44)
+[2024-07-10 11:01:30,394] INFO Creating Kafka admin client (org.apache.kafka.connect.util.ConnectUtils:49)
+[2024-07-10 11:01:30,395] INFO AdminClientConfig values: 
+	bootstrap.servers = [localhost:9092]
+	client.dns.lookup = use_all_dns_ips
+	client.id = 
+	connections.max.idle.ms = 300000
+	default.api.timeout.ms = 60000
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.2
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+ (org.apache.kafka.clients.admin.AdminClientConfig:376)
+[2024-07-10 11:01:30,410] WARN The configuration 'offset.flush.interval.ms' was supplied but isn't a known config. (org.apache.kafka.clients.admin.AdminClientConfig:384)
+[2024-07-10 11:01:30,410] WARN The configuration 'key.converter.schemas.enable' was supplied but isn't a known config. (org.apache.kafka.clients.admin.AdminClientConfig:384)
+[2024-07-10 11:01:30,410] WARN The configuration 'offset.storage.file.filename' was supplied but isn't a known config. (org.apache.kafka.clients.admin.AdminClientConfig:384)
+[2024-07-10 11:01:30,410] WARN The configuration 'value.converter.schemas.enable' was supplied but isn't a known config. (org.apache.kafka.clients.admin.AdminClientConfig:384)
+[2024-07-10 11:01:30,410] WARN The configuration 'plugin.path' was supplied but isn't a known config. (org.apache.kafka.clients.admin.AdminClientConfig:384)
+[2024-07-10 11:01:30,410] WARN The configuration 'value.converter' was supplied but isn't a known config. (org.apache.kafka.clients.admin.AdminClientConfig:384)
+[2024-07-10 11:01:30,410] WARN The configuration 'key.converter' was supplied but isn't a known config. (org.apache.kafka.clients.admin.AdminClientConfig:384)
+[2024-07-10 11:01:30,410] INFO Kafka version: 3.1.0 (org.apache.kafka.common.utils.AppInfoParser:119)
+[2024-07-10 11:01:30,410] INFO Kafka commitId: 37edeed0777bacb3 (org.apache.kafka.common.utils.AppInfoParser:120)
+[2024-07-10 11:01:30,410] INFO Kafka startTimeMs: 1720573290410 (org.apache.kafka.common.utils.AppInfoParser:121)
+[2024-07-10 11:01:30,439] INFO Kafka cluster ID: Tfo0g0JJSye1151KjlCULA (org.apache.kafka.connect.util.ConnectUtils:65)
+[2024-07-10 11:01:30,441] INFO App info kafka.admin.client for adminclient-2 unregistered (org.apache.kafka.common.utils.AppInfoParser:83)
+[2024-07-10 11:01:30,443] INFO Metrics scheduler closed (org.apache.kafka.common.metrics.Metrics:659)
+[2024-07-10 11:01:30,443] INFO Closing reporter org.apache.kafka.common.metrics.JmxReporter (org.apache.kafka.common.metrics.Metrics:663)
+[2024-07-10 11:01:30,443] INFO Metrics reporters closed (org.apache.kafka.common.metrics.Metrics:669)
+[2024-07-10 11:01:30,448] INFO Kafka version: 3.1.0 (org.apache.kafka.common.utils.AppInfoParser:119)
+[2024-07-10 11:01:30,449] INFO Kafka commitId: 37edeed0777bacb3 (org.apache.kafka.common.utils.AppInfoParser:120)
+[2024-07-10 11:01:30,449] INFO Kafka startTimeMs: 1720573290448 (org.apache.kafka.common.utils.AppInfoParser:121)
+[2024-07-10 11:01:30,535] INFO JsonConverterConfig values: 
+	converter.type = key
+	decimal.format = BASE64
+	schemas.cache.size = 1000
+	schemas.enable = false
+ (org.apache.kafka.connect.json.JsonConverterConfig:376)
+[2024-07-10 11:01:30,537] INFO JsonConverterConfig values: 
+	converter.type = value
+	decimal.format = BASE64
+	schemas.cache.size = 1000
+	schemas.enable = false
+ (org.apache.kafka.connect.json.JsonConverterConfig:376)
+[2024-07-10 11:01:30,542] INFO Kafka Connect standalone worker initialization took 3244ms (org.apache.kafka.connect.cli.ConnectStandalone:99)
+[2024-07-10 11:01:30,542] INFO Kafka Connect starting (org.apache.kafka.connect.runtime.Connect:51)
+[2024-07-10 11:01:30,543] INFO Herder starting (org.apache.kafka.connect.runtime.standalone.StandaloneHerder:98)
+[2024-07-10 11:01:30,543] INFO Worker starting (org.apache.kafka.connect.runtime.Worker:185)
+[2024-07-10 11:01:30,543] INFO Starting FileOffsetBackingStore with file /tmp/connect.offsets (org.apache.kafka.connect.storage.FileOffsetBackingStore:58)
+[2024-07-10 11:01:30,545] INFO Worker started (org.apache.kafka.connect.runtime.Worker:192)
+[2024-07-10 11:01:30,545] INFO Herder started (org.apache.kafka.connect.runtime.standalone.StandaloneHerder:101)
+[2024-07-10 11:01:30,545] INFO Initializing REST resources (org.apache.kafka.connect.runtime.rest.RestServer:208)
+[2024-07-10 11:01:30,599] INFO Adding admin resources to main listener (org.apache.kafka.connect.runtime.rest.RestServer:225)
+[2024-07-10 11:01:30,679] INFO DefaultSessionIdManager workerName=node0 (org.eclipse.jetty.server.session:334)
+[2024-07-10 11:01:30,680] INFO No SessionScavenger set, using defaults (org.eclipse.jetty.server.session:339)
+[2024-07-10 11:01:30,681] INFO node0 Scavenging every 660000ms (org.eclipse.jetty.server.session:132)
+[2024-07-10 11:01:31,315] INFO Started o.e.j.s.ServletContextHandler@46292372{/,null,AVAILABLE} (org.eclipse.jetty.server.handler.ContextHandler:915)
+[2024-07-10 11:01:31,316] INFO REST resources initialized; server is started and ready to handle requests (org.apache.kafka.connect.runtime.rest.RestServer:303)
+[2024-07-10 11:01:31,316] INFO Kafka Connect started (org.apache.kafka.connect.runtime.Connect:57)
+[2024-07-10 11:01:31,363] INFO AbstractConfig values: 
+ (org.apache.kafka.common.config.AbstractConfig:376)
+[2024-07-10 11:01:31,373] INFO [redshift-sink-connector|worker] Creating connector redshift-sink-connector of type io.confluent.connect.jdbc.JdbcSinkConnector (org.apache.kafka.connect.runtime.Worker:265)
+[2024-07-10 11:01:31,375] INFO [redshift-sink-connector|worker] SinkConnectorConfig values: 
+	config.action.reload = restart
+	connector.class = io.confluent.connect.jdbc.JdbcSinkConnector
+	errors.deadletterqueue.context.headers.enable = false
+	errors.deadletterqueue.topic.name = 
+	errors.deadletterqueue.topic.replication.factor = 3
+	errors.log.enable = false
+	errors.log.include.messages = false
+	errors.retry.delay.max.ms = 60000
+	errors.retry.timeout = 0
+	errors.tolerance = none
+	header.converter = null
+	key.converter = class org.apache.kafka.connect.storage.StringConverter
+	name = redshift-sink-connector
+	predicates = []
+	tasks.max = 1
+	topics = [client]
+	topics.regex = 
+	transforms = []
+	value.converter = class org.apache.kafka.connect.json.JsonConverter
+ (org.apache.kafka.connect.runtime.SinkConnectorConfig:376)
+[2024-07-10 11:01:31,377] INFO [redshift-sink-connector|worker] EnrichedConnectorConfig values: 
+	config.action.reload = restart
+	connector.class = io.confluent.connect.jdbc.JdbcSinkConnector
+	errors.deadletterqueue.context.headers.enable = false
+	errors.deadletterqueue.topic.name = 
+	errors.deadletterqueue.topic.replication.factor = 3
+	errors.log.enable = false
+	errors.log.include.messages = false
+	errors.retry.delay.max.ms = 60000
+	errors.retry.timeout = 0
+	errors.tolerance = none
+	header.converter = null
+	key.converter = class org.apache.kafka.connect.storage.StringConverter
+	name = redshift-sink-connector
+	predicates = []
+	tasks.max = 1
+	topics = [client]
+	topics.regex = 
+	transforms = []
+	value.converter = class org.apache.kafka.connect.json.JsonConverter
+ (org.apache.kafka.connect.runtime.ConnectorConfig$EnrichedConnectorConfig:376)
+[2024-07-10 11:01:31,384] INFO [redshift-sink-connector|worker] Instantiated connector redshift-sink-connector with version 10.7.6 of type class io.confluent.connect.jdbc.JdbcSinkConnector (org.apache.kafka.connect.runtime.Worker:275)
+[2024-07-10 11:01:31,384] INFO [redshift-sink-connector|worker] Finished creating connector redshift-sink-connector (org.apache.kafka.connect.runtime.Worker:300)
+[2024-07-10 11:01:31,388] INFO SinkConnectorConfig values: 
+	config.action.reload = restart
+	connector.class = io.confluent.connect.jdbc.JdbcSinkConnector
+	errors.deadletterqueue.context.headers.enable = false
+	errors.deadletterqueue.topic.name = 
+	errors.deadletterqueue.topic.replication.factor = 3
+	errors.log.enable = false
+	errors.log.include.messages = false
+	errors.retry.delay.max.ms = 60000
+	errors.retry.timeout = 0
+	errors.tolerance = none
+	header.converter = null
+	key.converter = class org.apache.kafka.connect.storage.StringConverter
+	name = redshift-sink-connector
+	predicates = []
+	tasks.max = 1
+	topics = [client]
+	topics.regex = 
+	transforms = []
+	value.converter = class org.apache.kafka.connect.json.JsonConverter
+ (org.apache.kafka.connect.runtime.SinkConnectorConfig:376)
+[2024-07-10 11:01:31,388] INFO EnrichedConnectorConfig values: 
+	config.action.reload = restart
+	connector.class = io.confluent.connect.jdbc.JdbcSinkConnector
+	errors.deadletterqueue.context.headers.enable = false
+	errors.deadletterqueue.topic.name = 
+	errors.deadletterqueue.topic.replication.factor = 3
+	errors.log.enable = false
+	errors.log.include.messages = false
+	errors.retry.delay.max.ms = 60000
+	errors.retry.timeout = 0
+	errors.tolerance = none
+	header.converter = null
+	key.converter = class org.apache.kafka.connect.storage.StringConverter
+	name = redshift-sink-connector
+	predicates = []
+	tasks.max = 1
+	topics = [client]
+	topics.regex = 
+	transforms = []
+	value.converter = class org.apache.kafka.connect.json.JsonConverter
+ (org.apache.kafka.connect.runtime.ConnectorConfig$EnrichedConnectorConfig:376)
+[2024-07-10 11:01:31,389] INFO [redshift-sink-connector|worker] Setting task configurations for 1 workers. (io.confluent.connect.jdbc.JdbcSinkConnector:51)
+[2024-07-10 11:01:31,390] INFO [redshift-sink-connector|task-0] Creating task redshift-sink-connector-0 (org.apache.kafka.connect.runtime.Worker:499)
+[2024-07-10 11:01:31,397] INFO [redshift-sink-connector|task-0] ConnectorConfig values: 
+	config.action.reload = restart
+	connector.class = io.confluent.connect.jdbc.JdbcSinkConnector
+	errors.log.enable = false
+	errors.log.include.messages = false
+	errors.retry.delay.max.ms = 60000
+	errors.retry.timeout = 0
+	errors.tolerance = none
+	header.converter = null
+	key.converter = class org.apache.kafka.connect.storage.StringConverter
+	name = redshift-sink-connector
+	predicates = []
+	tasks.max = 1
+	transforms = []
+	value.converter = class org.apache.kafka.connect.json.JsonConverter
+ (org.apache.kafka.connect.runtime.ConnectorConfig:376)
+[2024-07-10 11:01:31,399] INFO [redshift-sink-connector|task-0] EnrichedConnectorConfig values: 
+	config.action.reload = restart
+	connector.class = io.confluent.connect.jdbc.JdbcSinkConnector
+	errors.log.enable = false
+	errors.log.include.messages = false
+	errors.retry.delay.max.ms = 60000
+	errors.retry.timeout = 0
+	errors.tolerance = none
+	header.converter = null
+	key.converter = class org.apache.kafka.connect.storage.StringConverter
+	name = redshift-sink-connector
+	predicates = []
+	tasks.max = 1
+	transforms = []
+	value.converter = class org.apache.kafka.connect.json.JsonConverter
+ (org.apache.kafka.connect.runtime.ConnectorConfig$EnrichedConnectorConfig:376)
+[2024-07-10 11:01:31,402] INFO [redshift-sink-connector|task-0] TaskConfig values: 
+	task.class = class io.confluent.connect.jdbc.sink.JdbcSinkTask
+ (org.apache.kafka.connect.runtime.TaskConfig:376)
+[2024-07-10 11:01:31,403] INFO [redshift-sink-connector|task-0] Instantiated task redshift-sink-connector-0 with version 10.7.6 of type io.confluent.connect.jdbc.sink.JdbcSinkTask (org.apache.kafka.connect.runtime.Worker:514)
+[2024-07-10 11:01:31,406] INFO [redshift-sink-connector|task-0] StringConverterConfig values: 
+	converter.encoding = UTF-8
+	converter.type = key
+ (org.apache.kafka.connect.storage.StringConverterConfig:376)
+[2024-07-10 11:01:31,407] INFO [redshift-sink-connector|task-0] JsonConverterConfig values: 
+	converter.type = value
+	decimal.format = BASE64
+	schemas.cache.size = 1000
+	schemas.enable = true
+ (org.apache.kafka.connect.json.JsonConverterConfig:376)
+[2024-07-10 11:01:31,407] INFO [redshift-sink-connector|task-0] Set up the key converter class org.apache.kafka.connect.storage.StringConverter for task redshift-sink-connector-0 using the connector config (org.apache.kafka.connect.runtime.Worker:529)
+[2024-07-10 11:01:31,408] INFO [redshift-sink-connector|task-0] Set up the value converter class org.apache.kafka.connect.json.JsonConverter for task redshift-sink-connector-0 using the connector config (org.apache.kafka.connect.runtime.Worker:535)
+[2024-07-10 11:01:31,408] INFO [redshift-sink-connector|task-0] Set up the header converter class org.apache.kafka.connect.storage.SimpleHeaderConverter for task redshift-sink-connector-0 using the worker config (org.apache.kafka.connect.runtime.Worker:540)
+[2024-07-10 11:01:31,419] INFO [redshift-sink-connector|task-0] Initializing: org.apache.kafka.connect.runtime.TransformationChain{} (org.apache.kafka.connect.runtime.Worker:620)
+[2024-07-10 11:01:31,422] INFO [redshift-sink-connector|task-0] SinkConnectorConfig values: 
+	config.action.reload = restart
+	connector.class = io.confluent.connect.jdbc.JdbcSinkConnector
+	errors.deadletterqueue.context.headers.enable = false
+	errors.deadletterqueue.topic.name = 
+	errors.deadletterqueue.topic.replication.factor = 3
+	errors.log.enable = false
+	errors.log.include.messages = false
+	errors.retry.delay.max.ms = 60000
+	errors.retry.timeout = 0
+	errors.tolerance = none
+	header.converter = null
+	key.converter = class org.apache.kafka.connect.storage.StringConverter
+	name = redshift-sink-connector
+	predicates = []
+	tasks.max = 1
+	topics = [client]
+	topics.regex = 
+	transforms = []
+	value.converter = class org.apache.kafka.connect.json.JsonConverter
+ (org.apache.kafka.connect.runtime.SinkConnectorConfig:376)
+[2024-07-10 11:01:31,423] INFO [redshift-sink-connector|task-0] EnrichedConnectorConfig values: 
+	config.action.reload = restart
+	connector.class = io.confluent.connect.jdbc.JdbcSinkConnector
+	errors.deadletterqueue.context.headers.enable = false
+	errors.deadletterqueue.topic.name = 
+	errors.deadletterqueue.topic.replication.factor = 3
+	errors.log.enable = false
+	errors.log.include.messages = false
+	errors.retry.delay.max.ms = 60000
+	errors.retry.timeout = 0
+	errors.tolerance = none
+	header.converter = null
+	key.converter = class org.apache.kafka.connect.storage.StringConverter
+	name = redshift-sink-connector
+	predicates = []
+	tasks.max = 1
+	topics = [client]
+	topics.regex = 
+	transforms = []
+	value.converter = class org.apache.kafka.connect.json.JsonConverter
+ (org.apache.kafka.connect.runtime.ConnectorConfig$EnrichedConnectorConfig:376)
+[2024-07-10 11:01:31,440] INFO [redshift-sink-connector|task-0] ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.offset.reset = earliest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = connector-consumer-redshift-sink-connector-0
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = connect-redshift-sink-connector
+	group.instance.id = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.ByteArrayDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.2
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.ByteArrayDeserializer
+ (org.apache.kafka.clients.consumer.ConsumerConfig:376)
+[2024-07-10 11:01:31,500] WARN [redshift-sink-connector|task-0] The configuration 'metrics.context.connect.kafka.cluster.id' was supplied but isn't a known config. (org.apache.kafka.clients.consumer.ConsumerConfig:384)
+[2024-07-10 11:01:31,501] INFO [redshift-sink-connector|task-0] Kafka version: 3.1.0 (org.apache.kafka.common.utils.AppInfoParser:119)
+[2024-07-10 11:01:31,501] INFO [redshift-sink-connector|task-0] Kafka commitId: 37edeed0777bacb3 (org.apache.kafka.common.utils.AppInfoParser:120)
+[2024-07-10 11:01:31,501] INFO [redshift-sink-connector|task-0] Kafka startTimeMs: 1720573291501 (org.apache.kafka.common.utils.AppInfoParser:121)
+[2024-07-10 11:01:31,522] INFO Created connector redshift-sink-connector (org.apache.kafka.connect.cli.ConnectStandalone:109)
+[2024-07-10 11:01:31,523] INFO [redshift-sink-connector|task-0] [Consumer clientId=connector-consumer-redshift-sink-connector-0, groupId=connect-redshift-sink-connector] Subscribed to topic(s): client (org.apache.kafka.clients.consumer.KafkaConsumer:966)
+[2024-07-10 11:01:31,524] INFO [redshift-sink-connector|task-0] Starting JDBC Sink task (io.confluent.connect.jdbc.sink.JdbcSinkTask:51)
+[2024-07-10 11:01:31,525] INFO [redshift-sink-connector|task-0] JdbcSinkConfig values: 
+	auto.create = true
+	auto.evolve = true
+	batch.size = 3000
+	connection.attempts = 3
+	connection.backoff.ms = 10000
+	connection.password = [hidden]
+	connection.url = jdbc:redshift://testworkgroup.767397751477.ap-southeast-2.redshift-serverless.amazonaws.com:5439/dev
+	connection.user = admin
+	date.timezone = DB_TIMEZONE
+	db.timezone = UTC
+	delete.enabled = false
+	dialect.name = 
+	fields.whitelist = []
+	insert.mode = insert
+	max.retries = 10
+	mssql.use.merge.holdlock = true
+	pk.fields = []
+	pk.mode = none
+	quote.sql.identifiers = ALWAYS
+	retry.backoff.ms = 3000
+	table.name.format = client
+	table.types = [TABLE]
+	trim.sensitive.log = false
+ (io.confluent.connect.jdbc.sink.JdbcSinkConfig:376)
+[2024-07-10 11:01:31,527] INFO [redshift-sink-connector|task-0] Initializing JDBC writer (io.confluent.connect.jdbc.sink.JdbcSinkTask:65)
+[2024-07-10 11:01:31,528] INFO [redshift-sink-connector|task-0] Validating JDBC URL. (io.confluent.connect.jdbc.dialect.DatabaseDialects:171)
+[2024-07-10 11:01:31,528] INFO [redshift-sink-connector|task-0] Validated JDBC URL. (io.confluent.connect.jdbc.dialect.DatabaseDialects:174)
+[2024-07-10 11:01:31,532] INFO [redshift-sink-connector|task-0] Validating JDBC URL. (io.confluent.connect.jdbc.dialect.DatabaseDialects:171)
+[2024-07-10 11:01:31,532] INFO [redshift-sink-connector|task-0] Validated JDBC URL. (io.confluent.connect.jdbc.dialect.DatabaseDialects:174)
+[2024-07-10 11:01:31,533] INFO [redshift-sink-connector|task-0] Initializing writer using SQL dialect: GenericDatabaseDialect (io.confluent.connect.jdbc.sink.JdbcSinkTask:72)
+[2024-07-10 11:01:31,534] INFO [redshift-sink-connector|task-0] JDBC writer initialized (io.confluent.connect.jdbc.sink.JdbcSinkTask:74)
+[2024-07-10 11:01:31,534] INFO [redshift-sink-connector|task-0] WorkerSinkTask{id=redshift-sink-connector-0} Sink task finished initialization and start (org.apache.kafka.connect.runtime.WorkerSinkTask:313)
+[2024-07-10 11:01:31,535] INFO [redshift-sink-connector|task-0] WorkerSinkTask{id=redshift-sink-connector-0} Executing sink task (org.apache.kafka.connect.runtime.WorkerSinkTask:198)
+[2024-07-10 11:01:31,586] INFO [redshift-sink-connector|task-0] [Consumer clientId=connector-consumer-redshift-sink-connector-0, groupId=connect-redshift-sink-connector] Resetting the last seen epoch of partition client-0 to 0 since the associated topicId changed from null to N6F4OPYdRja0Og3aBHxy6Q (org.apache.kafka.clients.Metadata:402)
+[2024-07-10 11:01:31,595] INFO [redshift-sink-connector|task-0] [Consumer clientId=connector-consumer-redshift-sink-connector-0, groupId=connect-redshift-sink-connector] Cluster ID: Tfo0g0JJSye1151KjlCULA (org.apache.kafka.clients.Metadata:287)
+[2024-07-10 11:01:31,598] INFO [redshift-sink-connector|task-0] [Consumer clientId=connector-consumer-redshift-sink-connector-0, groupId=connect-redshift-sink-connector] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null) (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:853)
+[2024-07-10 11:01:31,602] INFO [redshift-sink-connector|task-0] [Consumer clientId=connector-consumer-redshift-sink-connector-0, groupId=connect-redshift-sink-connector] (Re-)joining group (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:535)
+[2024-07-10 11:01:31,666] INFO [redshift-sink-connector|task-0] [Consumer clientId=connector-consumer-redshift-sink-connector-0, groupId=connect-redshift-sink-connector] Request joining group due to: need to re-join with the given member-id (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:1000)
+[2024-07-10 11:01:31,667] INFO [redshift-sink-connector|task-0] [Consumer clientId=connector-consumer-redshift-sink-connector-0, groupId=connect-redshift-sink-connector] (Re-)joining group (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:535)
+[2024-07-10 11:02:09,733] INFO [redshift-sink-connector|task-0] [Consumer clientId=connector-consumer-redshift-sink-connector-0, groupId=connect-redshift-sink-connector] Successfully joined group with generation Generation{generationId=3, memberId='connector-consumer-redshift-sink-connector-0-461003bf-45e2-4ef9-ab53-a9a7926fec1b', protocol='range'} (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:595)
+[2024-07-10 11:02:09,757] INFO [redshift-sink-connector|task-0] [Consumer clientId=connector-consumer-redshift-sink-connector-0, groupId=connect-redshift-sink-connector] Finished assignment for group at generation 3: {connector-consumer-redshift-sink-connector-0-461003bf-45e2-4ef9-ab53-a9a7926fec1b=Assignment(partitions=[client-0])} (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:652)
+[2024-07-10 11:02:09,801] INFO [redshift-sink-connector|task-0] [Consumer clientId=connector-consumer-redshift-sink-connector-0, groupId=connect-redshift-sink-connector] Successfully synced group in generation Generation{generationId=3, memberId='connector-consumer-redshift-sink-connector-0-461003bf-45e2-4ef9-ab53-a9a7926fec1b', protocol='range'} (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:761)
+[2024-07-10 11:02:09,803] INFO [redshift-sink-connector|task-0] [Consumer clientId=connector-consumer-redshift-sink-connector-0, groupId=connect-redshift-sink-connector] Notifying assignor about the new Assignment(partitions=[client-0]) (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:279)
+[2024-07-10 11:02:09,808] INFO [redshift-sink-connector|task-0] [Consumer clientId=connector-consumer-redshift-sink-connector-0, groupId=connect-redshift-sink-connector] Adding newly assigned partitions: client-0 (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:291)
+[2024-07-10 11:02:09,842] INFO [redshift-sink-connector|task-0] [Consumer clientId=connector-consumer-redshift-sink-connector-0, groupId=connect-redshift-sink-connector] Setting offset for partition client-0 to the committed offset FetchPosition{offset=9, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null)], epoch=0}} (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:844)
+[2024-07-10 11:02:10,789] INFO [redshift-sink-connector|task-0] JdbcDbWriter Connected (io.confluent.connect.jdbc.sink.JdbcDbWriter:56)
+[2024-07-10 11:02:11,188] INFO [redshift-sink-connector|task-0] Checking Generic dialect for existence of TABLE "client" (io.confluent.connect.jdbc.dialect.GenericDatabaseDialect:595)
+[2024-07-10 11:02:11,232] INFO [redshift-sink-connector|task-0] Using Generic dialect TABLE "client" present (io.confluent.connect.jdbc.dialect.GenericDatabaseDialect:603)
+[2024-07-10 11:02:11,369] INFO [redshift-sink-connector|task-0] Checking Generic dialect for type of TABLE "client" (io.confluent.connect.jdbc.dialect.GenericDatabaseDialect:889)
+[2024-07-10 11:02:11,398] INFO [redshift-sink-connector|task-0] Setting metadata for table "client" to Table{name='"client"', type=TABLE columns=[Column{'first_name', isPrimaryKey=false, allowsNull=true, sqlType=varchar}, Column{'last_name', isPrimaryKey=false, allowsNull=true, sqlType=varchar}, Column{'id', isPrimaryKey=false, allowsNull=false, sqlType=varchar}]} (io.confluent.connect.jdbc.util.TableDefinitions:64)
+[2024-07-10 11:10:32,095] INFO [redshift-sink-connector|task-0] [Consumer clientId=connector-consumer-redshift-sink-connector-0, groupId=connect-redshift-sink-connector] Node -1 disconnected. (org.apache.kafka.clients.NetworkClient:935)
+[2024-07-10 11:57:30,235] WARN [redshift-sink-connector|task-0] Write of 3 records failed, remainingRetries=10 (io.confluent.connect.jdbc.sink.JdbcSinkTask:101)
+java.sql.BatchUpdateException: Batch entry 0 INSERT INTO "client"("id","first_name","last_name") VALUES('9','Aaliyah','Jeffery') was aborted: ERROR: relation "client" does not exist  Call getNextException to see other errors in the batch.
+	at com.amazon.redshift.jdbc.BatchResultHandler.handleError(BatchResultHandler.java:167)
+	at com.amazon.redshift.jdbc.RedshiftStatementImpl.internalExecuteBatch(RedshiftStatementImpl.java:968)
+	at com.amazon.redshift.jdbc.RedshiftStatementImpl.executeBatch(RedshiftStatementImpl.java:1012)
+	at com.amazon.redshift.jdbc.RedshiftPreparedStatement.executeBatch(RedshiftPreparedStatement.java:1765)
+	at io.confluent.connect.jdbc.sink.BufferedRecords.executeUpdates(BufferedRecords.java:196)
+	at io.confluent.connect.jdbc.sink.BufferedRecords.flush(BufferedRecords.java:186)
+	at io.confluent.connect.jdbc.sink.JdbcDbWriter.write(JdbcDbWriter.java:80)
+	at io.confluent.connect.jdbc.sink.JdbcSinkTask.put(JdbcSinkTask.java:90)
+	at org.apache.kafka.connect.runtime.WorkerSinkTask.deliverMessages(WorkerSinkTask.java:581)
+	at org.apache.kafka.connect.runtime.WorkerSinkTask.poll(WorkerSinkTask.java:333)
+	at org.apache.kafka.connect.runtime.WorkerSinkTask.iteration(WorkerSinkTask.java:234)
+	at org.apache.kafka.connect.runtime.WorkerSinkTask.execute(WorkerSinkTask.java:203)
+	at org.apache.kafka.connect.runtime.WorkerTask.doRun(WorkerTask.java:188)
+	at org.apache.kafka.connect.runtime.WorkerTask.run(WorkerTask.java:243)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:750)
+Caused by: com.amazon.redshift.util.RedshiftException: ERROR: relation "client" does not exist
+	at com.amazon.redshift.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2601)
+	at com.amazon.redshift.core.v3.QueryExecutorImpl.processResultsOnThread(QueryExecutorImpl.java:2269)
+	at com.amazon.redshift.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:1874)
+	at com.amazon.redshift.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:1866)
+	at com.amazon.redshift.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at com.amazon.redshift.jdbc.RedshiftStatementImpl.internalExecuteBatch(RedshiftStatementImpl.java:965)
+	... 17 more
+[2024-07-10 11:57:30,257] INFO [redshift-sink-connector|task-0] Initializing JDBC writer (io.confluent.connect.jdbc.sink.JdbcSinkTask:65)
+[2024-07-10 11:57:30,258] INFO [redshift-sink-connector|task-0] Validating JDBC URL. (io.confluent.connect.jdbc.dialect.DatabaseDialects:171)
+[2024-07-10 11:57:30,259] INFO [redshift-sink-connector|task-0] Validated JDBC URL. (io.confluent.connect.jdbc.dialect.DatabaseDialects:174)
+[2024-07-10 11:57:30,260] INFO [redshift-sink-connector|task-0] Validating JDBC URL. (io.confluent.connect.jdbc.dialect.DatabaseDialects:171)
+[2024-07-10 11:57:30,260] INFO [redshift-sink-connector|task-0] Validated JDBC URL. (io.confluent.connect.jdbc.dialect.DatabaseDialects:174)
+[2024-07-10 11:57:30,261] INFO [redshift-sink-connector|task-0] Initializing writer using SQL dialect: GenericDatabaseDialect (io.confluent.connect.jdbc.sink.JdbcSinkTask:72)
+[2024-07-10 11:57:30,261] INFO [redshift-sink-connector|task-0] JDBC writer initialized (io.confluent.connect.jdbc.sink.JdbcSinkTask:74)
+[2024-07-10 11:57:30,262] ERROR [redshift-sink-connector|task-0] WorkerSinkTask{id=redshift-sink-connector-0} RetriableException from SinkTask: (org.apache.kafka.connect.runtime.WorkerSinkTask:600)
+org.apache.kafka.connect.errors.RetriableException: java.sql.SQLException: Exception chain:
+java.sql.BatchUpdateException: Batch entry 0 INSERT INTO "client"("id","first_name","last_name") VALUES('9','Aaliyah','Jeffery') was aborted: ERROR: relation "client" does not exist  Call getNextException to see other errors in the batch.
+com.amazon.redshift.util.RedshiftException: ERROR: relation "client" does not exist
+com.amazon.redshift.util.RedshiftException: ERROR: relation "client" does not exist
+
+	at io.confluent.connect.jdbc.sink.JdbcSinkTask.put(JdbcSinkTask.java:118)
+	at org.apache.kafka.connect.runtime.WorkerSinkTask.deliverMessages(WorkerSinkTask.java:581)
+	at org.apache.kafka.connect.runtime.WorkerSinkTask.poll(WorkerSinkTask.java:333)
+	at org.apache.kafka.connect.runtime.WorkerSinkTask.iteration(WorkerSinkTask.java:234)
+	at org.apache.kafka.connect.runtime.WorkerSinkTask.execute(WorkerSinkTask.java:203)
+	at org.apache.kafka.connect.runtime.WorkerTask.doRun(WorkerTask.java:188)
+	at org.apache.kafka.connect.runtime.WorkerTask.run(WorkerTask.java:243)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:750)
+Caused by: java.sql.SQLException: Exception chain:
+java.sql.BatchUpdateException: Batch entry 0 INSERT INTO "client"("id","first_name","last_name") VALUES('9','Aaliyah','Jeffery') was aborted: ERROR: relation "client" does not exist  Call getNextException to see other errors in the batch.
+com.amazon.redshift.util.RedshiftException: ERROR: relation "client" does not exist
+com.amazon.redshift.util.RedshiftException: ERROR: relation "client" does not exist
+
+	at io.confluent.connect.jdbc.sink.JdbcSinkTask.getAllMessagesException(JdbcSinkTask.java:165)
+	at io.confluent.connect.jdbc.sink.JdbcSinkTask.put(JdbcSinkTask.java:111)
+	... 11 more
+[2024-07-10 11:57:33,595] INFO [redshift-sink-connector|task-0] JdbcDbWriter Connected (io.confluent.connect.jdbc.sink.JdbcDbWriter:56)
+[2024-07-10 11:57:33,757] INFO [redshift-sink-connector|task-0] Checking Generic dialect for existence of TABLE "client" (io.confluent.connect.jdbc.dialect.GenericDatabaseDialect:595)
+[2024-07-10 11:57:33,805] INFO [redshift-sink-connector|task-0] Using Generic dialect TABLE "client" absent (io.confluent.connect.jdbc.dialect.GenericDatabaseDialect:603)
+[2024-07-10 11:57:33,824] ERROR [redshift-sink-connector|task-0] WorkerSinkTask{id=redshift-sink-connector-0} Task threw an uncaught and unrecoverable exception. Task is being killed and will not recover until manually restarted. Error: null (STRING) type doesn't have a mapping to the SQL database column type (org.apache.kafka.connect.runtime.WorkerSinkTask:609)
+org.apache.kafka.connect.errors.ConnectException: null (STRING) type doesn't have a mapping to the SQL database column type
+	at io.confluent.connect.jdbc.dialect.GenericDatabaseDialect.getSqlType(GenericDatabaseDialect.java:1955)
+	at io.confluent.connect.jdbc.dialect.GenericDatabaseDialect.writeColumnSpec(GenericDatabaseDialect.java:1870)
+	at io.confluent.connect.jdbc.dialect.GenericDatabaseDialect.lambda$writeColumnsSpec$39(GenericDatabaseDialect.java:1859)
+	at io.confluent.connect.jdbc.util.ExpressionBuilder.append(ExpressionBuilder.java:560)
+	at io.confluent.connect.jdbc.util.ExpressionBuilder$BasicListBuilder.of(ExpressionBuilder.java:599)
+	at io.confluent.connect.jdbc.dialect.GenericDatabaseDialect.writeColumnsSpec(GenericDatabaseDialect.java:1861)
+	at io.confluent.connect.jdbc.dialect.GenericDatabaseDialect.buildCreateTableStatement(GenericDatabaseDialect.java:1778)
+	at io.confluent.connect.jdbc.sink.DbStructure.create(DbStructure.java:121)
+	at io.confluent.connect.jdbc.sink.DbStructure.createOrAmendIfNecessary(DbStructure.java:67)
+	at io.confluent.connect.jdbc.sink.BufferedRecords.add(BufferedRecords.java:122)
+	at io.confluent.connect.jdbc.sink.JdbcDbWriter.write(JdbcDbWriter.java:74)
+	at io.confluent.connect.jdbc.sink.JdbcSinkTask.put(JdbcSinkTask.java:90)
+	at org.apache.kafka.connect.runtime.WorkerSinkTask.deliverMessages(WorkerSinkTask.java:581)
+	at org.apache.kafka.connect.runtime.WorkerSinkTask.poll(WorkerSinkTask.java:333)
+	at org.apache.kafka.connect.runtime.WorkerSinkTask.iteration(WorkerSinkTask.java:234)
+	at org.apache.kafka.connect.runtime.WorkerSinkTask.execute(WorkerSinkTask.java:203)
+	at org.apache.kafka.connect.runtime.WorkerTask.doRun(WorkerTask.java:188)
+	at org.apache.kafka.connect.runtime.WorkerTask.run(WorkerTask.java:243)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:750)
+[2024-07-10 11:57:33,827] ERROR [redshift-sink-connector|task-0] WorkerSinkTask{id=redshift-sink-connector-0} Task threw an uncaught and unrecoverable exception. Task is being killed and will not recover until manually restarted (org.apache.kafka.connect.runtime.WorkerTask:195)
+org.apache.kafka.connect.errors.ConnectException: Exiting WorkerSinkTask due to unrecoverable exception.
+	at org.apache.kafka.connect.runtime.WorkerSinkTask.deliverMessages(WorkerSinkTask.java:611)
+	at org.apache.kafka.connect.runtime.WorkerSinkTask.poll(WorkerSinkTask.java:333)
+	at org.apache.kafka.connect.runtime.WorkerSinkTask.iteration(WorkerSinkTask.java:234)
+	at org.apache.kafka.connect.runtime.WorkerSinkTask.execute(WorkerSinkTask.java:203)
+	at org.apache.kafka.connect.runtime.WorkerTask.doRun(WorkerTask.java:188)
+	at org.apache.kafka.connect.runtime.WorkerTask.run(WorkerTask.java:243)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:750)
+Caused by: org.apache.kafka.connect.errors.ConnectException: null (STRING) type doesn't have a mapping to the SQL database column type
+	at io.confluent.connect.jdbc.dialect.GenericDatabaseDialect.getSqlType(GenericDatabaseDialect.java:1955)
+	at io.confluent.connect.jdbc.dialect.GenericDatabaseDialect.writeColumnSpec(GenericDatabaseDialect.java:1870)
+	at io.confluent.connect.jdbc.dialect.GenericDatabaseDialect.lambda$writeColumnsSpec$39(GenericDatabaseDialect.java:1859)
+	at io.confluent.connect.jdbc.util.ExpressionBuilder.append(ExpressionBuilder.java:560)
+	at io.confluent.connect.jdbc.util.ExpressionBuilder$BasicListBuilder.of(ExpressionBuilder.java:599)
+	at io.confluent.connect.jdbc.dialect.GenericDatabaseDialect.writeColumnsSpec(GenericDatabaseDialect.java:1861)
+	at io.confluent.connect.jdbc.dialect.GenericDatabaseDialect.buildCreateTableStatement(GenericDatabaseDialect.java:1778)
+	at io.confluent.connect.jdbc.sink.DbStructure.create(DbStructure.java:121)
+	at io.confluent.connect.jdbc.sink.DbStructure.createOrAmendIfNecessary(DbStructure.java:67)
+	at io.confluent.connect.jdbc.sink.BufferedRecords.add(BufferedRecords.java:122)
+	at io.confluent.connect.jdbc.sink.JdbcDbWriter.write(JdbcDbWriter.java:74)
+	at io.confluent.connect.jdbc.sink.JdbcSinkTask.put(JdbcSinkTask.java:90)
+	at org.apache.kafka.connect.runtime.WorkerSinkTask.deliverMessages(WorkerSinkTask.java:581)
+	... 10 more
+[2024-07-10 11:57:33,828] INFO [redshift-sink-connector|task-0] Stopping task (io.confluent.connect.jdbc.sink.JdbcSinkTask:176)
+[2024-07-10 11:57:33,830] INFO [redshift-sink-connector|task-0] [Consumer clientId=connector-consumer-redshift-sink-connector-0, groupId=connect-redshift-sink-connector] Revoke previously assigned partitions client-0 (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:310)
+[2024-07-10 11:57:33,831] INFO [redshift-sink-connector|task-0] [Consumer clientId=connector-consumer-redshift-sink-connector-0, groupId=connect-redshift-sink-connector] Member connector-consumer-redshift-sink-connector-0-461003bf-45e2-4ef9-ab53-a9a7926fec1b sending LeaveGroup request to coordinator localhost:9092 (id: 2147483646 rack: null) due to the consumer is being closed (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:1060)
+[2024-07-10 11:57:33,837] INFO [redshift-sink-connector|task-0] [Consumer clientId=connector-consumer-redshift-sink-connector-0, groupId=connect-redshift-sink-connector] Resetting generation due to: consumer pro-actively leaving the group (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:972)
+[2024-07-10 11:57:33,837] INFO [redshift-sink-connector|task-0] [Consumer clientId=connector-consumer-redshift-sink-connector-0, groupId=connect-redshift-sink-connector] Request joining group due to: consumer pro-actively leaving the group (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:1000)
+[2024-07-10 11:57:34,401] INFO [redshift-sink-connector|task-0] Metrics scheduler closed (org.apache.kafka.common.metrics.Metrics:659)
+[2024-07-10 11:57:34,402] INFO [redshift-sink-connector|task-0] Closing reporter org.apache.kafka.common.metrics.JmxReporter (org.apache.kafka.common.metrics.Metrics:663)
+[2024-07-10 11:57:34,403] INFO [redshift-sink-connector|task-0] Metrics reporters closed (org.apache.kafka.common.metrics.Metrics:669)
+[2024-07-10 11:57:34,411] INFO [redshift-sink-connector|task-0] App info kafka.consumer for connector-consumer-redshift-sink-connector-0 unregistered (org.apache.kafka.common.utils.AppInfoParser:83)
+[2024-07-10 11:58:02,621] INFO Kafka Connect standalone worker initializing ... (org.apache.kafka.connect.cli.ConnectStandalone:68)
+[2024-07-10 11:58:02,631] INFO WorkerInfo values: 
+	jvm.args = -Xms256M, -Xmx2G, -XX:+UseG1GC, -XX:MaxGCPauseMillis=20, -XX:InitiatingHeapOccupancyPercent=35, -XX:+ExplicitGCInvokesConcurrent, -XX:MaxInlineLevel=15, -Djava.awt.headless=true, -Dcom.sun.management.jmxremote, -Dcom.sun.management.jmxremote.authenticate=false, -Dcom.sun.management.jmxremote.ssl=false, -Dkafka.logs.dir=/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../logs, -Dlog4j.configuration=file:../kafka_2.13-3.1.0/bin/../config/connect-log4j.properties
+	jvm.spec = Oracle Corporation, Java HotSpot(TM) 64-Bit Server VM, 1.8.0_351, 25.351-b10
+	jvm.classpath = /Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/activation-1.1.1.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/aopalliance-repackaged-2.6.1.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/argparse4j-0.7.0.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/audience-annotations-0.5.0.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/commons-cli-1.4.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/commons-lang3-3.8.1.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/connect-api-3.1.0.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/connect-basic-auth-extension-3.1.0.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/connect-file-3.1.0.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/connect-json-3.1.0.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/connect-mirror-3.1.0.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/connect-mirror-client-3.1.0.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/connect-runtime-3.1.0.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/connect-transforms-3.1.0.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/hk2-api-2.6.1.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/hk2-locator-2.6.1.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/hk2-utils-2.6.1.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/jackson-annotations-2.12.3.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/jackson-core-2.12.3.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/jackson-databind-2.12.3.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/jackson-dataformat-csv-2.12.3.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/jackson-datatype-jdk8-2.12.3.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/jackson-jaxrs-base-2.12.3.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/jackson-jaxrs-json-provider-2.12.3.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/jackson-module-jaxb-annotations-2.12.3.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/jackson-module-scala_2.13-2.12.3.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/jakarta.activation-api-1.2.1.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/jakarta.annotation-api-1.3.5.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/jakarta.inject-2.6.1.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/jakarta.validation-api-2.0.2.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/jakarta.ws.rs-api-2.1.6.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/jakarta.xml.bind-api-2.3.2.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/javassist-3.27.0-GA.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/javax.servlet-api-3.1.0.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/javax.ws.rs-api-2.1.1.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/jaxb-api-2.3.0.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/jersey-client-2.34.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/jersey-common-2.34.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/jersey-container-servlet-2.34.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/jersey-container-servlet-core-2.34.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/jersey-hk2-2.34.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/jersey-server-2.34.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/jetty-client-9.4.43.v20210629.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/jetty-continuation-9.4.43.v20210629.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/jetty-http-9.4.43.v20210629.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/jetty-io-9.4.43.v20210629.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/jetty-security-9.4.43.v20210629.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/jetty-server-9.4.43.v20210629.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/jetty-servlet-9.4.43.v20210629.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/jetty-servlets-9.4.43.v20210629.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/jetty-util-9.4.43.v20210629.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/jetty-util-ajax-9.4.43.v20210629.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/jline-3.12.1.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/jopt-simple-5.0.4.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/jose4j-0.7.8.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/kafka-clients-3.1.0.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/kafka-log4j-appender-3.1.0.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/kafka-metadata-3.1.0.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/kafka-raft-3.1.0.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/kafka-server-common-3.1.0.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/kafka-shell-3.1.0.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/kafka-storage-3.1.0.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/kafka-storage-api-3.1.0.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/kafka-streams-3.1.0.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/kafka-streams-examples-3.1.0.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/kafka-streams-scala_2.13-3.1.0.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/kafka-streams-test-utils-3.1.0.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/kafka-tools-3.1.0.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/kafka_2.13-3.1.0.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/log4j-1.2.17.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/lz4-java-1.8.0.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/maven-artifact-3.8.1.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/metrics-core-2.2.0.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/metrics-core-4.1.12.1.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/netty-buffer-4.1.68.Final.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/netty-codec-4.1.68.Final.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/netty-common-4.1.68.Final.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/netty-handler-4.1.68.Final.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/netty-resolver-4.1.68.Final.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/netty-transport-4.1.68.Final.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/netty-transport-native-epoll-4.1.68.Final.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/netty-transport-native-unix-common-4.1.68.Final.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/osgi-resource-locator-1.0.3.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/paranamer-2.8.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/plexus-utils-3.2.1.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/reflections-0.9.12.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/rocksdbjni-6.22.1.1.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/scala-collection-compat_2.13-2.4.4.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/scala-java8-compat_2.13-1.0.0.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/scala-library-2.13.6.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/scala-logging_2.13-3.9.3.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/scala-reflect-2.13.6.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/slf4j-api-1.7.30.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/slf4j-log4j12-1.7.30.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/snappy-java-1.1.8.4.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/trogdor-3.1.0.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/zookeeper-3.6.3.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/zookeeper-jute-3.6.3.jar:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../kafka_2.13-3.1.0/bin/../libs/zstd-jni-1.5.0-4.jar
+	os.spec = Mac OS X, x86_64, 13.1
+	os.vcpus = 8
+ (org.apache.kafka.connect.runtime.WorkerInfo:71)
+[2024-07-10 11:58:02,845] INFO Scanning for plugin classes. This might take a moment ... (org.apache.kafka.connect.cli.ConnectStandalone:77)
+[2024-07-10 11:58:02,888] INFO Loading plugin from: /Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../plugins/confluent-kafka-connect (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:265)
+[2024-07-10 11:58:03,473] INFO Registered loader: PluginClassLoader{pluginLocation=file:/Users/oliverfrance/Documents/repos/redshift-kakfa-connector-realtime-streaming-pipeline/redshift-kafka-connector/configuration/../plugins/confluent-kafka-connect/} (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:288)
+[2024-07-10 11:58:03,475] INFO Added plugin 'io.confluent.connect.jdbc.JdbcSinkConnector' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:58:03,475] INFO Added plugin 'io.confluent.connect.jdbc.JdbcSourceConnector' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:58:03,475] INFO Added plugin 'org.apache.kafka.connect.connector.policy.AllConnectorClientConfigOverridePolicy' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:58:03,475] INFO Added plugin 'org.apache.kafka.connect.connector.policy.PrincipalConnectorClientConfigOverridePolicy' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:58:03,475] INFO Added plugin 'org.apache.kafka.connect.connector.policy.NoneConnectorClientConfigOverridePolicy' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:58:05,410] INFO Registered loader: sun.misc.Launcher$AppClassLoader@764c12b6 (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:288)
+[2024-07-10 11:58:05,410] INFO Added plugin 'org.apache.kafka.connect.mirror.MirrorSourceConnector' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:58:05,410] INFO Added plugin 'org.apache.kafka.connect.file.FileStreamSinkConnector' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:58:05,410] INFO Added plugin 'org.apache.kafka.connect.file.FileStreamSourceConnector' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:58:05,410] INFO Added plugin 'org.apache.kafka.connect.tools.SchemaSourceConnector' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:58:05,411] INFO Added plugin 'org.apache.kafka.connect.tools.MockSourceConnector' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:58:05,412] INFO Added plugin 'org.apache.kafka.connect.mirror.MirrorCheckpointConnector' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:58:05,412] INFO Added plugin 'org.apache.kafka.connect.tools.VerifiableSinkConnector' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:58:05,412] INFO Added plugin 'org.apache.kafka.connect.tools.VerifiableSourceConnector' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:58:05,412] INFO Added plugin 'org.apache.kafka.connect.tools.MockSinkConnector' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:58:05,413] INFO Added plugin 'org.apache.kafka.connect.mirror.MirrorHeartbeatConnector' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:58:05,413] INFO Added plugin 'org.apache.kafka.connect.tools.MockConnector' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:58:05,413] INFO Added plugin 'org.apache.kafka.connect.converters.FloatConverter' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:58:05,413] INFO Added plugin 'org.apache.kafka.connect.converters.DoubleConverter' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:58:05,414] INFO Added plugin 'org.apache.kafka.connect.converters.ByteArrayConverter' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:58:05,415] INFO Added plugin 'org.apache.kafka.connect.converters.LongConverter' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:58:05,415] INFO Added plugin 'org.apache.kafka.connect.converters.IntegerConverter' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:58:05,415] INFO Added plugin 'org.apache.kafka.connect.json.JsonConverter' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:58:05,415] INFO Added plugin 'org.apache.kafka.connect.storage.StringConverter' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:58:05,415] INFO Added plugin 'org.apache.kafka.connect.converters.ShortConverter' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:58:05,415] INFO Added plugin 'org.apache.kafka.connect.storage.SimpleHeaderConverter' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:58:05,415] INFO Added plugin 'org.apache.kafka.connect.transforms.ReplaceField$Value' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:58:05,415] INFO Added plugin 'org.apache.kafka.connect.transforms.SetSchemaMetadata$Value' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:58:05,415] INFO Added plugin 'org.apache.kafka.connect.transforms.ReplaceField$Key' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:58:05,415] INFO Added plugin 'org.apache.kafka.connect.transforms.Filter' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:58:05,415] INFO Added plugin 'org.apache.kafka.connect.transforms.InsertField$Value' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:58:05,415] INFO Added plugin 'org.apache.kafka.connect.transforms.HeaderFrom$Key' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:58:05,415] INFO Added plugin 'org.apache.kafka.connect.transforms.TimestampConverter$Key' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:58:05,415] INFO Added plugin 'org.apache.kafka.connect.transforms.MaskField$Value' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:58:05,415] INFO Added plugin 'org.apache.kafka.connect.transforms.TimestampRouter' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:58:05,416] INFO Added plugin 'org.apache.kafka.connect.transforms.RegexRouter' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:58:05,416] INFO Added plugin 'org.apache.kafka.connect.transforms.HoistField$Value' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:58:05,417] INFO Added plugin 'org.apache.kafka.connect.transforms.ValueToKey' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:58:05,417] INFO Added plugin 'org.apache.kafka.connect.transforms.MaskField$Key' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:58:05,417] INFO Added plugin 'org.apache.kafka.connect.transforms.DropHeaders' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:58:05,417] INFO Added plugin 'org.apache.kafka.connect.transforms.Cast$Key' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:58:05,417] INFO Added plugin 'org.apache.kafka.connect.transforms.Cast$Value' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:58:05,418] INFO Added plugin 'org.apache.kafka.connect.runtime.PredicatedTransformation' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:58:05,418] INFO Added plugin 'org.apache.kafka.connect.transforms.ExtractField$Key' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:58:05,418] INFO Added plugin 'org.apache.kafka.connect.transforms.Flatten$Value' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:58:05,418] INFO Added plugin 'org.apache.kafka.connect.transforms.InsertHeader' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:58:05,418] INFO Added plugin 'org.apache.kafka.connect.transforms.InsertField$Key' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:58:05,418] INFO Added plugin 'org.apache.kafka.connect.transforms.Flatten$Key' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:58:05,418] INFO Added plugin 'org.apache.kafka.connect.transforms.HeaderFrom$Value' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:58:05,418] INFO Added plugin 'org.apache.kafka.connect.transforms.SetSchemaMetadata$Key' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:58:05,418] INFO Added plugin 'org.apache.kafka.connect.transforms.ExtractField$Value' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:58:05,418] INFO Added plugin 'org.apache.kafka.connect.transforms.TimestampConverter$Value' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:58:05,418] INFO Added plugin 'org.apache.kafka.connect.transforms.HoistField$Key' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:58:05,418] INFO Added plugin 'org.apache.kafka.connect.transforms.predicates.HasHeaderKey' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:58:05,418] INFO Added plugin 'org.apache.kafka.connect.transforms.predicates.RecordIsTombstone' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:58:05,418] INFO Added plugin 'org.apache.kafka.connect.transforms.predicates.TopicNameMatches' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:58:05,419] INFO Added plugin 'org.apache.kafka.common.config.provider.FileConfigProvider' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:58:05,419] INFO Added plugin 'org.apache.kafka.common.config.provider.DirectoryConfigProvider' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:58:05,419] INFO Added plugin 'org.apache.kafka.connect.rest.basic.auth.extension.BasicAuthSecurityRestExtension' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:217)
+[2024-07-10 11:58:05,421] INFO Added aliases 'JdbcSinkConnector' and 'JdbcSink' to plugin 'io.confluent.connect.jdbc.JdbcSinkConnector' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:462)
+[2024-07-10 11:58:05,422] INFO Added aliases 'JdbcSourceConnector' and 'JdbcSource' to plugin 'io.confluent.connect.jdbc.JdbcSourceConnector' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:462)
+[2024-07-10 11:58:05,422] INFO Added aliases 'FileStreamSinkConnector' and 'FileStreamSink' to plugin 'org.apache.kafka.connect.file.FileStreamSinkConnector' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:462)
+[2024-07-10 11:58:05,423] INFO Added aliases 'FileStreamSourceConnector' and 'FileStreamSource' to plugin 'org.apache.kafka.connect.file.FileStreamSourceConnector' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:462)
+[2024-07-10 11:58:05,423] INFO Added aliases 'MirrorCheckpointConnector' and 'MirrorCheckpoint' to plugin 'org.apache.kafka.connect.mirror.MirrorCheckpointConnector' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:462)
+[2024-07-10 11:58:05,423] INFO Added aliases 'MirrorHeartbeatConnector' and 'MirrorHeartbeat' to plugin 'org.apache.kafka.connect.mirror.MirrorHeartbeatConnector' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:462)
+[2024-07-10 11:58:05,423] INFO Added aliases 'MirrorSourceConnector' and 'MirrorSource' to plugin 'org.apache.kafka.connect.mirror.MirrorSourceConnector' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:462)
+[2024-07-10 11:58:05,423] INFO Added aliases 'MockConnector' and 'Mock' to plugin 'org.apache.kafka.connect.tools.MockConnector' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:462)
+[2024-07-10 11:58:05,423] INFO Added aliases 'MockSinkConnector' and 'MockSink' to plugin 'org.apache.kafka.connect.tools.MockSinkConnector' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:462)
+[2024-07-10 11:58:05,424] INFO Added aliases 'MockSourceConnector' and 'MockSource' to plugin 'org.apache.kafka.connect.tools.MockSourceConnector' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:462)
+[2024-07-10 11:58:05,425] INFO Added aliases 'SchemaSourceConnector' and 'SchemaSource' to plugin 'org.apache.kafka.connect.tools.SchemaSourceConnector' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:462)
+[2024-07-10 11:58:05,425] INFO Added aliases 'VerifiableSinkConnector' and 'VerifiableSink' to plugin 'org.apache.kafka.connect.tools.VerifiableSinkConnector' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:462)
+[2024-07-10 11:58:05,425] INFO Added aliases 'VerifiableSourceConnector' and 'VerifiableSource' to plugin 'org.apache.kafka.connect.tools.VerifiableSourceConnector' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:462)
+[2024-07-10 11:58:05,425] INFO Added aliases 'ByteArrayConverter' and 'ByteArray' to plugin 'org.apache.kafka.connect.converters.ByteArrayConverter' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:462)
+[2024-07-10 11:58:05,425] INFO Added aliases 'DoubleConverter' and 'Double' to plugin 'org.apache.kafka.connect.converters.DoubleConverter' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:462)
+[2024-07-10 11:58:05,425] INFO Added aliases 'FloatConverter' and 'Float' to plugin 'org.apache.kafka.connect.converters.FloatConverter' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:462)
+[2024-07-10 11:58:05,425] INFO Added aliases 'IntegerConverter' and 'Integer' to plugin 'org.apache.kafka.connect.converters.IntegerConverter' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:462)
+[2024-07-10 11:58:05,425] INFO Added aliases 'LongConverter' and 'Long' to plugin 'org.apache.kafka.connect.converters.LongConverter' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:462)
+[2024-07-10 11:58:05,430] INFO Added aliases 'ShortConverter' and 'Short' to plugin 'org.apache.kafka.connect.converters.ShortConverter' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:462)
+[2024-07-10 11:58:05,430] INFO Added aliases 'JsonConverter' and 'Json' to plugin 'org.apache.kafka.connect.json.JsonConverter' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:462)
+[2024-07-10 11:58:05,430] INFO Added aliases 'StringConverter' and 'String' to plugin 'org.apache.kafka.connect.storage.StringConverter' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:462)
+[2024-07-10 11:58:05,432] INFO Added aliases 'ByteArrayConverter' and 'ByteArray' to plugin 'org.apache.kafka.connect.converters.ByteArrayConverter' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:462)
+[2024-07-10 11:58:05,432] INFO Added aliases 'DoubleConverter' and 'Double' to plugin 'org.apache.kafka.connect.converters.DoubleConverter' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:462)
+[2024-07-10 11:58:05,433] INFO Added aliases 'FloatConverter' and 'Float' to plugin 'org.apache.kafka.connect.converters.FloatConverter' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:462)
+[2024-07-10 11:58:05,433] INFO Added aliases 'IntegerConverter' and 'Integer' to plugin 'org.apache.kafka.connect.converters.IntegerConverter' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:462)
+[2024-07-10 11:58:05,433] INFO Added aliases 'LongConverter' and 'Long' to plugin 'org.apache.kafka.connect.converters.LongConverter' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:462)
+[2024-07-10 11:58:05,433] INFO Added aliases 'ShortConverter' and 'Short' to plugin 'org.apache.kafka.connect.converters.ShortConverter' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:462)
+[2024-07-10 11:58:05,433] INFO Added aliases 'JsonConverter' and 'Json' to plugin 'org.apache.kafka.connect.json.JsonConverter' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:462)
+[2024-07-10 11:58:05,433] INFO Added alias 'SimpleHeaderConverter' to plugin 'org.apache.kafka.connect.storage.SimpleHeaderConverter' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:459)
+[2024-07-10 11:58:05,433] INFO Added aliases 'StringConverter' and 'String' to plugin 'org.apache.kafka.connect.storage.StringConverter' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:462)
+[2024-07-10 11:58:05,438] INFO Added aliases 'PredicatedTransformation' and 'Predicated' to plugin 'org.apache.kafka.connect.runtime.PredicatedTransformation' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:462)
+[2024-07-10 11:58:05,438] INFO Added alias 'DropHeaders' to plugin 'org.apache.kafka.connect.transforms.DropHeaders' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:459)
+[2024-07-10 11:58:05,439] INFO Added alias 'Filter' to plugin 'org.apache.kafka.connect.transforms.Filter' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:459)
+[2024-07-10 11:58:05,439] INFO Added alias 'InsertHeader' to plugin 'org.apache.kafka.connect.transforms.InsertHeader' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:459)
+[2024-07-10 11:58:05,439] INFO Added alias 'RegexRouter' to plugin 'org.apache.kafka.connect.transforms.RegexRouter' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:459)
+[2024-07-10 11:58:05,439] INFO Added alias 'TimestampRouter' to plugin 'org.apache.kafka.connect.transforms.TimestampRouter' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:459)
+[2024-07-10 11:58:05,439] INFO Added alias 'ValueToKey' to plugin 'org.apache.kafka.connect.transforms.ValueToKey' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:459)
+[2024-07-10 11:58:05,439] INFO Added alias 'HasHeaderKey' to plugin 'org.apache.kafka.connect.transforms.predicates.HasHeaderKey' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:459)
+[2024-07-10 11:58:05,439] INFO Added alias 'RecordIsTombstone' to plugin 'org.apache.kafka.connect.transforms.predicates.RecordIsTombstone' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:459)
+[2024-07-10 11:58:05,439] INFO Added alias 'TopicNameMatches' to plugin 'org.apache.kafka.connect.transforms.predicates.TopicNameMatches' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:459)
+[2024-07-10 11:58:05,440] INFO Added alias 'BasicAuthSecurityRestExtension' to plugin 'org.apache.kafka.connect.rest.basic.auth.extension.BasicAuthSecurityRestExtension' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:459)
+[2024-07-10 11:58:05,440] INFO Added aliases 'AllConnectorClientConfigOverridePolicy' and 'All' to plugin 'org.apache.kafka.connect.connector.policy.AllConnectorClientConfigOverridePolicy' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:462)
+[2024-07-10 11:58:05,440] INFO Added aliases 'NoneConnectorClientConfigOverridePolicy' and 'None' to plugin 'org.apache.kafka.connect.connector.policy.NoneConnectorClientConfigOverridePolicy' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:462)
+[2024-07-10 11:58:05,440] INFO Added aliases 'PrincipalConnectorClientConfigOverridePolicy' and 'Principal' to plugin 'org.apache.kafka.connect.connector.policy.PrincipalConnectorClientConfigOverridePolicy' (org.apache.kafka.connect.runtime.isolation.DelegatingClassLoader:462)
+[2024-07-10 11:58:05,460] INFO StandaloneConfig values: 
+	access.control.allow.methods = 
+	access.control.allow.origin = 
+	admin.listeners = null
+	bootstrap.servers = [localhost:9092]
+	client.dns.lookup = use_all_dns_ips
+	config.providers = []
+	connector.client.config.override.policy = All
+	header.converter = class org.apache.kafka.connect.storage.SimpleHeaderConverter
+	key.converter = class org.apache.kafka.connect.storage.StringConverter
+	listeners = [http://:8083]
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	offset.flush.interval.ms = 10000
+	offset.flush.timeout.ms = 5000
+	offset.storage.file.filename = /tmp/connect.offsets
+	plugin.path = [../plugins/]
+	response.http.headers.config = 
+	rest.advertised.host.name = null
+	rest.advertised.listener = null
+	rest.advertised.port = null
+	rest.extension.classes = []
+	ssl.cipher.suites = null
+	ssl.client.auth = none
+	ssl.enabled.protocols = [TLSv1.2]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.2
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	task.shutdown.graceful.timeout.ms = 5000
+	topic.creation.enable = true
+	topic.tracking.allow.reset = true
+	topic.tracking.enable = true
+	value.converter = class org.apache.kafka.connect.json.JsonConverter
+ (org.apache.kafka.connect.runtime.standalone.StandaloneConfig:376)
+[2024-07-10 11:58:05,463] INFO Creating Kafka admin client (org.apache.kafka.connect.util.ConnectUtils:49)
+[2024-07-10 11:58:05,466] INFO AdminClientConfig values: 
+	bootstrap.servers = [localhost:9092]
+	client.dns.lookup = use_all_dns_ips
+	client.id = 
+	connections.max.idle.ms = 300000
+	default.api.timeout.ms = 60000
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.2
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+ (org.apache.kafka.clients.admin.AdminClientConfig:376)
+[2024-07-10 11:58:05,582] WARN The configuration 'offset.flush.interval.ms' was supplied but isn't a known config. (org.apache.kafka.clients.admin.AdminClientConfig:384)
+[2024-07-10 11:58:05,585] WARN The configuration 'key.converter.schemas.enable' was supplied but isn't a known config. (org.apache.kafka.clients.admin.AdminClientConfig:384)
+[2024-07-10 11:58:05,585] WARN The configuration 'offset.storage.file.filename' was supplied but isn't a known config. (org.apache.kafka.clients.admin.AdminClientConfig:384)
+[2024-07-10 11:58:05,585] WARN The configuration 'value.converter.schemas.enable' was supplied but isn't a known config. (org.apache.kafka.clients.admin.AdminClientConfig:384)
+[2024-07-10 11:58:05,585] WARN The configuration 'plugin.path' was supplied but isn't a known config. (org.apache.kafka.clients.admin.AdminClientConfig:384)
+[2024-07-10 11:58:05,585] WARN The configuration 'value.converter' was supplied but isn't a known config. (org.apache.kafka.clients.admin.AdminClientConfig:384)
+[2024-07-10 11:58:05,585] WARN The configuration 'key.converter' was supplied but isn't a known config. (org.apache.kafka.clients.admin.AdminClientConfig:384)
+[2024-07-10 11:58:05,588] INFO Kafka version: 3.1.0 (org.apache.kafka.common.utils.AppInfoParser:119)
+[2024-07-10 11:58:05,588] INFO Kafka commitId: 37edeed0777bacb3 (org.apache.kafka.common.utils.AppInfoParser:120)
+[2024-07-10 11:58:05,588] INFO Kafka startTimeMs: 1720576685585 (org.apache.kafka.common.utils.AppInfoParser:121)
+[2024-07-10 11:58:05,973] INFO Kafka cluster ID: Tfo0g0JJSye1151KjlCULA (org.apache.kafka.connect.util.ConnectUtils:65)
+[2024-07-10 11:58:05,978] INFO App info kafka.admin.client for adminclient-1 unregistered (org.apache.kafka.common.utils.AppInfoParser:83)
+[2024-07-10 11:58:05,992] INFO Metrics scheduler closed (org.apache.kafka.common.metrics.Metrics:659)
+[2024-07-10 11:58:05,992] INFO Closing reporter org.apache.kafka.common.metrics.JmxReporter (org.apache.kafka.common.metrics.Metrics:663)
+[2024-07-10 11:58:05,992] INFO Metrics reporters closed (org.apache.kafka.common.metrics.Metrics:669)
+[2024-07-10 11:58:06,012] INFO Logging initialized @4032ms to org.eclipse.jetty.util.log.Slf4jLog (org.eclipse.jetty.util.log:170)
+[2024-07-10 11:58:06,065] INFO Added connector for http://:8083 (org.apache.kafka.connect.runtime.rest.RestServer:117)
+[2024-07-10 11:58:06,066] INFO Initializing REST server (org.apache.kafka.connect.runtime.rest.RestServer:188)
+[2024-07-10 11:58:06,076] INFO jetty-9.4.43.v20210629; built: 2021-06-30T11:07:22.254Z; git: 526006ecfa3af7f1a27ef3a288e2bef7ea9dd7e8; jvm 1.8.0_351-b10 (org.eclipse.jetty.server.Server:375)
+[2024-07-10 11:58:06,111] INFO Started http_8083@30990c1b{HTTP/1.1, (http/1.1)}{0.0.0.0:8083} (org.eclipse.jetty.server.AbstractConnector:331)
+[2024-07-10 11:58:06,113] INFO Started @4132ms (org.eclipse.jetty.server.Server:415)
+[2024-07-10 11:58:06,132] INFO Advertised URI: http://192.168.20.2:8083/ (org.apache.kafka.connect.runtime.rest.RestServer:355)
+[2024-07-10 11:58:06,133] INFO REST server listening at http://192.168.20.2:8083/, advertising URL http://192.168.20.2:8083/ (org.apache.kafka.connect.runtime.rest.RestServer:203)
+[2024-07-10 11:58:06,133] INFO Advertised URI: http://192.168.20.2:8083/ (org.apache.kafka.connect.runtime.rest.RestServer:355)
+[2024-07-10 11:58:06,133] INFO REST admin endpoints at http://192.168.20.2:8083/ (org.apache.kafka.connect.runtime.rest.RestServer:204)
+[2024-07-10 11:58:06,133] INFO Advertised URI: http://192.168.20.2:8083/ (org.apache.kafka.connect.runtime.rest.RestServer:355)
+[2024-07-10 11:58:06,134] INFO Setting up All Policy for ConnectorClientConfigOverride. This will allow all client configurations to be overridden (org.apache.kafka.connect.connector.policy.AllConnectorClientConfigOverridePolicy:44)
+[2024-07-10 11:58:06,139] INFO Creating Kafka admin client (org.apache.kafka.connect.util.ConnectUtils:49)
+[2024-07-10 11:58:06,140] INFO AdminClientConfig values: 
+	bootstrap.servers = [localhost:9092]
+	client.dns.lookup = use_all_dns_ips
+	client.id = 
+	connections.max.idle.ms = 300000
+	default.api.timeout.ms = 60000
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.2
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+ (org.apache.kafka.clients.admin.AdminClientConfig:376)
+[2024-07-10 11:58:06,151] WARN The configuration 'offset.flush.interval.ms' was supplied but isn't a known config. (org.apache.kafka.clients.admin.AdminClientConfig:384)
+[2024-07-10 11:58:06,151] WARN The configuration 'key.converter.schemas.enable' was supplied but isn't a known config. (org.apache.kafka.clients.admin.AdminClientConfig:384)
+[2024-07-10 11:58:06,151] WARN The configuration 'offset.storage.file.filename' was supplied but isn't a known config. (org.apache.kafka.clients.admin.AdminClientConfig:384)
+[2024-07-10 11:58:06,151] WARN The configuration 'value.converter.schemas.enable' was supplied but isn't a known config. (org.apache.kafka.clients.admin.AdminClientConfig:384)
+[2024-07-10 11:58:06,151] WARN The configuration 'plugin.path' was supplied but isn't a known config. (org.apache.kafka.clients.admin.AdminClientConfig:384)
+[2024-07-10 11:58:06,151] WARN The configuration 'value.converter' was supplied but isn't a known config. (org.apache.kafka.clients.admin.AdminClientConfig:384)
+[2024-07-10 11:58:06,151] WARN The configuration 'key.converter' was supplied but isn't a known config. (org.apache.kafka.clients.admin.AdminClientConfig:384)
+[2024-07-10 11:58:06,151] INFO Kafka version: 3.1.0 (org.apache.kafka.common.utils.AppInfoParser:119)
+[2024-07-10 11:58:06,151] INFO Kafka commitId: 37edeed0777bacb3 (org.apache.kafka.common.utils.AppInfoParser:120)
+[2024-07-10 11:58:06,151] INFO Kafka startTimeMs: 1720576686151 (org.apache.kafka.common.utils.AppInfoParser:121)
+[2024-07-10 11:58:06,182] INFO Kafka cluster ID: Tfo0g0JJSye1151KjlCULA (org.apache.kafka.connect.util.ConnectUtils:65)
+[2024-07-10 11:58:06,184] INFO App info kafka.admin.client for adminclient-2 unregistered (org.apache.kafka.common.utils.AppInfoParser:83)
+[2024-07-10 11:58:06,185] INFO Metrics scheduler closed (org.apache.kafka.common.metrics.Metrics:659)
+[2024-07-10 11:58:06,185] INFO Closing reporter org.apache.kafka.common.metrics.JmxReporter (org.apache.kafka.common.metrics.Metrics:663)
+[2024-07-10 11:58:06,185] INFO Metrics reporters closed (org.apache.kafka.common.metrics.Metrics:669)
+[2024-07-10 11:58:06,190] INFO Kafka version: 3.1.0 (org.apache.kafka.common.utils.AppInfoParser:119)
+[2024-07-10 11:58:06,190] INFO Kafka commitId: 37edeed0777bacb3 (org.apache.kafka.common.utils.AppInfoParser:120)
+[2024-07-10 11:58:06,190] INFO Kafka startTimeMs: 1720576686190 (org.apache.kafka.common.utils.AppInfoParser:121)
+[2024-07-10 11:58:06,275] INFO JsonConverterConfig values: 
+	converter.type = key
+	decimal.format = BASE64
+	schemas.cache.size = 1000
+	schemas.enable = false
+ (org.apache.kafka.connect.json.JsonConverterConfig:376)
+[2024-07-10 11:58:06,276] INFO JsonConverterConfig values: 
+	converter.type = value
+	decimal.format = BASE64
+	schemas.cache.size = 1000
+	schemas.enable = false
+ (org.apache.kafka.connect.json.JsonConverterConfig:376)
+[2024-07-10 11:58:06,282] INFO Kafka Connect standalone worker initialization took 3658ms (org.apache.kafka.connect.cli.ConnectStandalone:99)
+[2024-07-10 11:58:06,283] INFO Kafka Connect starting (org.apache.kafka.connect.runtime.Connect:51)
+[2024-07-10 11:58:06,284] INFO Herder starting (org.apache.kafka.connect.runtime.standalone.StandaloneHerder:98)
+[2024-07-10 11:58:06,284] INFO Worker starting (org.apache.kafka.connect.runtime.Worker:185)
+[2024-07-10 11:58:06,284] INFO Starting FileOffsetBackingStore with file /tmp/connect.offsets (org.apache.kafka.connect.storage.FileOffsetBackingStore:58)
+[2024-07-10 11:58:06,287] INFO Worker started (org.apache.kafka.connect.runtime.Worker:192)
+[2024-07-10 11:58:06,287] INFO Herder started (org.apache.kafka.connect.runtime.standalone.StandaloneHerder:101)
+[2024-07-10 11:58:06,287] INFO Initializing REST resources (org.apache.kafka.connect.runtime.rest.RestServer:208)
+[2024-07-10 11:58:06,346] INFO Adding admin resources to main listener (org.apache.kafka.connect.runtime.rest.RestServer:225)
+[2024-07-10 11:58:06,430] INFO DefaultSessionIdManager workerName=node0 (org.eclipse.jetty.server.session:334)
+[2024-07-10 11:58:06,430] INFO No SessionScavenger set, using defaults (org.eclipse.jetty.server.session:339)
+[2024-07-10 11:58:06,431] INFO node0 Scavenging every 600000ms (org.eclipse.jetty.server.session:132)
+[2024-07-10 11:58:07,073] INFO Started o.e.j.s.ServletContextHandler@126be319{/,null,AVAILABLE} (org.eclipse.jetty.server.handler.ContextHandler:915)
+[2024-07-10 11:58:07,074] INFO REST resources initialized; server is started and ready to handle requests (org.apache.kafka.connect.runtime.rest.RestServer:303)
+[2024-07-10 11:58:07,074] INFO Kafka Connect started (org.apache.kafka.connect.runtime.Connect:57)
+[2024-07-10 11:58:07,118] INFO AbstractConfig values: 
+ (org.apache.kafka.common.config.AbstractConfig:376)
+[2024-07-10 11:58:07,127] INFO [redshift-sink-connector|worker] Creating connector redshift-sink-connector of type io.confluent.connect.jdbc.JdbcSinkConnector (org.apache.kafka.connect.runtime.Worker:265)
+[2024-07-10 11:58:07,129] INFO [redshift-sink-connector|worker] SinkConnectorConfig values: 
+	config.action.reload = restart
+	connector.class = io.confluent.connect.jdbc.JdbcSinkConnector
+	errors.deadletterqueue.context.headers.enable = false
+	errors.deadletterqueue.topic.name = 
+	errors.deadletterqueue.topic.replication.factor = 3
+	errors.log.enable = false
+	errors.log.include.messages = false
+	errors.retry.delay.max.ms = 60000
+	errors.retry.timeout = 0
+	errors.tolerance = none
+	header.converter = null
+	key.converter = class org.apache.kafka.connect.storage.StringConverter
+	name = redshift-sink-connector
+	predicates = []
+	tasks.max = 1
+	topics = [client]
+	topics.regex = 
+	transforms = []
+	value.converter = class org.apache.kafka.connect.json.JsonConverter
+ (org.apache.kafka.connect.runtime.SinkConnectorConfig:376)
+[2024-07-10 11:58:07,130] INFO [redshift-sink-connector|worker] EnrichedConnectorConfig values: 
+	config.action.reload = restart
+	connector.class = io.confluent.connect.jdbc.JdbcSinkConnector
+	errors.deadletterqueue.context.headers.enable = false
+	errors.deadletterqueue.topic.name = 
+	errors.deadletterqueue.topic.replication.factor = 3
+	errors.log.enable = false
+	errors.log.include.messages = false
+	errors.retry.delay.max.ms = 60000
+	errors.retry.timeout = 0
+	errors.tolerance = none
+	header.converter = null
+	key.converter = class org.apache.kafka.connect.storage.StringConverter
+	name = redshift-sink-connector
+	predicates = []
+	tasks.max = 1
+	topics = [client]
+	topics.regex = 
+	transforms = []
+	value.converter = class org.apache.kafka.connect.json.JsonConverter
+ (org.apache.kafka.connect.runtime.ConnectorConfig$EnrichedConnectorConfig:376)
+[2024-07-10 11:58:07,137] INFO [redshift-sink-connector|worker] Instantiated connector redshift-sink-connector with version 10.7.6 of type class io.confluent.connect.jdbc.JdbcSinkConnector (org.apache.kafka.connect.runtime.Worker:275)
+[2024-07-10 11:58:07,137] INFO [redshift-sink-connector|worker] Finished creating connector redshift-sink-connector (org.apache.kafka.connect.runtime.Worker:300)
+[2024-07-10 11:58:07,140] INFO SinkConnectorConfig values: 
+	config.action.reload = restart
+	connector.class = io.confluent.connect.jdbc.JdbcSinkConnector
+	errors.deadletterqueue.context.headers.enable = false
+	errors.deadletterqueue.topic.name = 
+	errors.deadletterqueue.topic.replication.factor = 3
+	errors.log.enable = false
+	errors.log.include.messages = false
+	errors.retry.delay.max.ms = 60000
+	errors.retry.timeout = 0
+	errors.tolerance = none
+	header.converter = null
+	key.converter = class org.apache.kafka.connect.storage.StringConverter
+	name = redshift-sink-connector
+	predicates = []
+	tasks.max = 1
+	topics = [client]
+	topics.regex = 
+	transforms = []
+	value.converter = class org.apache.kafka.connect.json.JsonConverter
+ (org.apache.kafka.connect.runtime.SinkConnectorConfig:376)
+[2024-07-10 11:58:07,140] INFO EnrichedConnectorConfig values: 
+	config.action.reload = restart
+	connector.class = io.confluent.connect.jdbc.JdbcSinkConnector
+	errors.deadletterqueue.context.headers.enable = false
+	errors.deadletterqueue.topic.name = 
+	errors.deadletterqueue.topic.replication.factor = 3
+	errors.log.enable = false
+	errors.log.include.messages = false
+	errors.retry.delay.max.ms = 60000
+	errors.retry.timeout = 0
+	errors.tolerance = none
+	header.converter = null
+	key.converter = class org.apache.kafka.connect.storage.StringConverter
+	name = redshift-sink-connector
+	predicates = []
+	tasks.max = 1
+	topics = [client]
+	topics.regex = 
+	transforms = []
+	value.converter = class org.apache.kafka.connect.json.JsonConverter
+ (org.apache.kafka.connect.runtime.ConnectorConfig$EnrichedConnectorConfig:376)
+[2024-07-10 11:58:07,141] INFO [redshift-sink-connector|worker] Setting task configurations for 1 workers. (io.confluent.connect.jdbc.JdbcSinkConnector:51)
+[2024-07-10 11:58:07,141] INFO [redshift-sink-connector|task-0] Creating task redshift-sink-connector-0 (org.apache.kafka.connect.runtime.Worker:499)
+[2024-07-10 11:58:07,145] INFO [redshift-sink-connector|task-0] ConnectorConfig values: 
+	config.action.reload = restart
+	connector.class = io.confluent.connect.jdbc.JdbcSinkConnector
+	errors.log.enable = false
+	errors.log.include.messages = false
+	errors.retry.delay.max.ms = 60000
+	errors.retry.timeout = 0
+	errors.tolerance = none
+	header.converter = null
+	key.converter = class org.apache.kafka.connect.storage.StringConverter
+	name = redshift-sink-connector
+	predicates = []
+	tasks.max = 1
+	transforms = []
+	value.converter = class org.apache.kafka.connect.json.JsonConverter
+ (org.apache.kafka.connect.runtime.ConnectorConfig:376)
+[2024-07-10 11:58:07,146] INFO [redshift-sink-connector|task-0] EnrichedConnectorConfig values: 
+	config.action.reload = restart
+	connector.class = io.confluent.connect.jdbc.JdbcSinkConnector
+	errors.log.enable = false
+	errors.log.include.messages = false
+	errors.retry.delay.max.ms = 60000
+	errors.retry.timeout = 0
+	errors.tolerance = none
+	header.converter = null
+	key.converter = class org.apache.kafka.connect.storage.StringConverter
+	name = redshift-sink-connector
+	predicates = []
+	tasks.max = 1
+	transforms = []
+	value.converter = class org.apache.kafka.connect.json.JsonConverter
+ (org.apache.kafka.connect.runtime.ConnectorConfig$EnrichedConnectorConfig:376)
+[2024-07-10 11:58:07,149] INFO [redshift-sink-connector|task-0] TaskConfig values: 
+	task.class = class io.confluent.connect.jdbc.sink.JdbcSinkTask
+ (org.apache.kafka.connect.runtime.TaskConfig:376)
+[2024-07-10 11:58:07,149] INFO [redshift-sink-connector|task-0] Instantiated task redshift-sink-connector-0 with version 10.7.6 of type io.confluent.connect.jdbc.sink.JdbcSinkTask (org.apache.kafka.connect.runtime.Worker:514)
+[2024-07-10 11:58:07,150] INFO [redshift-sink-connector|task-0] StringConverterConfig values: 
+	converter.encoding = UTF-8
+	converter.type = key
+ (org.apache.kafka.connect.storage.StringConverterConfig:376)
+[2024-07-10 11:58:07,152] INFO [redshift-sink-connector|task-0] JsonConverterConfig values: 
+	converter.type = value
+	decimal.format = BASE64
+	schemas.cache.size = 1000
+	schemas.enable = true
+ (org.apache.kafka.connect.json.JsonConverterConfig:376)
+[2024-07-10 11:58:07,153] INFO [redshift-sink-connector|task-0] Set up the key converter class org.apache.kafka.connect.storage.StringConverter for task redshift-sink-connector-0 using the connector config (org.apache.kafka.connect.runtime.Worker:529)
+[2024-07-10 11:58:07,153] INFO [redshift-sink-connector|task-0] Set up the value converter class org.apache.kafka.connect.json.JsonConverter for task redshift-sink-connector-0 using the connector config (org.apache.kafka.connect.runtime.Worker:535)
+[2024-07-10 11:58:07,154] INFO [redshift-sink-connector|task-0] Set up the header converter class org.apache.kafka.connect.storage.SimpleHeaderConverter for task redshift-sink-connector-0 using the worker config (org.apache.kafka.connect.runtime.Worker:540)
+[2024-07-10 11:58:07,160] INFO [redshift-sink-connector|task-0] Initializing: org.apache.kafka.connect.runtime.TransformationChain{} (org.apache.kafka.connect.runtime.Worker:620)
+[2024-07-10 11:58:07,162] INFO [redshift-sink-connector|task-0] SinkConnectorConfig values: 
+	config.action.reload = restart
+	connector.class = io.confluent.connect.jdbc.JdbcSinkConnector
+	errors.deadletterqueue.context.headers.enable = false
+	errors.deadletterqueue.topic.name = 
+	errors.deadletterqueue.topic.replication.factor = 3
+	errors.log.enable = false
+	errors.log.include.messages = false
+	errors.retry.delay.max.ms = 60000
+	errors.retry.timeout = 0
+	errors.tolerance = none
+	header.converter = null
+	key.converter = class org.apache.kafka.connect.storage.StringConverter
+	name = redshift-sink-connector
+	predicates = []
+	tasks.max = 1
+	topics = [client]
+	topics.regex = 
+	transforms = []
+	value.converter = class org.apache.kafka.connect.json.JsonConverter
+ (org.apache.kafka.connect.runtime.SinkConnectorConfig:376)
+[2024-07-10 11:58:07,162] INFO [redshift-sink-connector|task-0] EnrichedConnectorConfig values: 
+	config.action.reload = restart
+	connector.class = io.confluent.connect.jdbc.JdbcSinkConnector
+	errors.deadletterqueue.context.headers.enable = false
+	errors.deadletterqueue.topic.name = 
+	errors.deadletterqueue.topic.replication.factor = 3
+	errors.log.enable = false
+	errors.log.include.messages = false
+	errors.retry.delay.max.ms = 60000
+	errors.retry.timeout = 0
+	errors.tolerance = none
+	header.converter = null
+	key.converter = class org.apache.kafka.connect.storage.StringConverter
+	name = redshift-sink-connector
+	predicates = []
+	tasks.max = 1
+	topics = [client]
+	topics.regex = 
+	transforms = []
+	value.converter = class org.apache.kafka.connect.json.JsonConverter
+ (org.apache.kafka.connect.runtime.ConnectorConfig$EnrichedConnectorConfig:376)
+[2024-07-10 11:58:07,171] INFO [redshift-sink-connector|task-0] ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.offset.reset = earliest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = connector-consumer-redshift-sink-connector-0
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = connect-redshift-sink-connector
+	group.instance.id = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.ByteArrayDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.2
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.ByteArrayDeserializer
+ (org.apache.kafka.clients.consumer.ConsumerConfig:376)
+[2024-07-10 11:58:07,211] WARN [redshift-sink-connector|task-0] The configuration 'metrics.context.connect.kafka.cluster.id' was supplied but isn't a known config. (org.apache.kafka.clients.consumer.ConsumerConfig:384)
+[2024-07-10 11:58:07,211] INFO [redshift-sink-connector|task-0] Kafka version: 3.1.0 (org.apache.kafka.common.utils.AppInfoParser:119)
+[2024-07-10 11:58:07,211] INFO [redshift-sink-connector|task-0] Kafka commitId: 37edeed0777bacb3 (org.apache.kafka.common.utils.AppInfoParser:120)
+[2024-07-10 11:58:07,211] INFO [redshift-sink-connector|task-0] Kafka startTimeMs: 1720576687211 (org.apache.kafka.common.utils.AppInfoParser:121)
+[2024-07-10 11:58:07,228] INFO Created connector redshift-sink-connector (org.apache.kafka.connect.cli.ConnectStandalone:109)
+[2024-07-10 11:58:07,230] INFO [redshift-sink-connector|task-0] [Consumer clientId=connector-consumer-redshift-sink-connector-0, groupId=connect-redshift-sink-connector] Subscribed to topic(s): client (org.apache.kafka.clients.consumer.KafkaConsumer:966)
+[2024-07-10 11:58:07,231] INFO [redshift-sink-connector|task-0] Starting JDBC Sink task (io.confluent.connect.jdbc.sink.JdbcSinkTask:51)
+[2024-07-10 11:58:07,232] INFO [redshift-sink-connector|task-0] JdbcSinkConfig values: 
+	auto.create = true
+	auto.evolve = true
+	batch.size = 3000
+	connection.attempts = 3
+	connection.backoff.ms = 10000
+	connection.password = [hidden]
+	connection.url = jdbc:redshift://testworkgroup.767397751477.ap-southeast-2.redshift-serverless.amazonaws.com:5439/dev
+	connection.user = admin
+	date.timezone = DB_TIMEZONE
+	db.timezone = UTC
+	delete.enabled = false
+	dialect.name = 
+	fields.whitelist = []
+	insert.mode = insert
+	max.retries = 10
+	mssql.use.merge.holdlock = true
+	pk.fields = []
+	pk.mode = none
+	quote.sql.identifiers = ALWAYS
+	retry.backoff.ms = 3000
+	table.name.format = client
+	table.types = [TABLE]
+	trim.sensitive.log = false
+ (io.confluent.connect.jdbc.sink.JdbcSinkConfig:376)
+[2024-07-10 11:58:07,234] INFO [redshift-sink-connector|task-0] Initializing JDBC writer (io.confluent.connect.jdbc.sink.JdbcSinkTask:65)
+[2024-07-10 11:58:07,234] INFO [redshift-sink-connector|task-0] Validating JDBC URL. (io.confluent.connect.jdbc.dialect.DatabaseDialects:171)
+[2024-07-10 11:58:07,234] INFO [redshift-sink-connector|task-0] Validated JDBC URL. (io.confluent.connect.jdbc.dialect.DatabaseDialects:174)
+[2024-07-10 11:58:07,237] INFO [redshift-sink-connector|task-0] Validating JDBC URL. (io.confluent.connect.jdbc.dialect.DatabaseDialects:171)
+[2024-07-10 11:58:07,237] INFO [redshift-sink-connector|task-0] Validated JDBC URL. (io.confluent.connect.jdbc.dialect.DatabaseDialects:174)
+[2024-07-10 11:58:07,238] INFO [redshift-sink-connector|task-0] Initializing writer using SQL dialect: GenericDatabaseDialect (io.confluent.connect.jdbc.sink.JdbcSinkTask:72)
+[2024-07-10 11:58:07,239] INFO [redshift-sink-connector|task-0] JDBC writer initialized (io.confluent.connect.jdbc.sink.JdbcSinkTask:74)
+[2024-07-10 11:58:07,239] INFO [redshift-sink-connector|task-0] WorkerSinkTask{id=redshift-sink-connector-0} Sink task finished initialization and start (org.apache.kafka.connect.runtime.WorkerSinkTask:313)
+[2024-07-10 11:58:07,240] INFO [redshift-sink-connector|task-0] WorkerSinkTask{id=redshift-sink-connector-0} Executing sink task (org.apache.kafka.connect.runtime.WorkerSinkTask:198)
+[2024-07-10 11:58:07,290] INFO [redshift-sink-connector|task-0] [Consumer clientId=connector-consumer-redshift-sink-connector-0, groupId=connect-redshift-sink-connector] Resetting the last seen epoch of partition client-0 to 0 since the associated topicId changed from null to N6F4OPYdRja0Og3aBHxy6Q (org.apache.kafka.clients.Metadata:402)
+[2024-07-10 11:58:07,301] INFO [redshift-sink-connector|task-0] [Consumer clientId=connector-consumer-redshift-sink-connector-0, groupId=connect-redshift-sink-connector] Cluster ID: Tfo0g0JJSye1151KjlCULA (org.apache.kafka.clients.Metadata:287)
+[2024-07-10 11:58:07,304] INFO [redshift-sink-connector|task-0] [Consumer clientId=connector-consumer-redshift-sink-connector-0, groupId=connect-redshift-sink-connector] Discovered group coordinator localhost:9092 (id: 2147483646 rack: null) (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:853)
+[2024-07-10 11:58:07,308] INFO [redshift-sink-connector|task-0] [Consumer clientId=connector-consumer-redshift-sink-connector-0, groupId=connect-redshift-sink-connector] (Re-)joining group (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:535)
+[2024-07-10 11:58:07,360] INFO [redshift-sink-connector|task-0] [Consumer clientId=connector-consumer-redshift-sink-connector-0, groupId=connect-redshift-sink-connector] Request joining group due to: need to re-join with the given member-id (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:1000)
+[2024-07-10 11:58:07,361] INFO [redshift-sink-connector|task-0] [Consumer clientId=connector-consumer-redshift-sink-connector-0, groupId=connect-redshift-sink-connector] (Re-)joining group (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:535)
+[2024-07-10 11:58:10,416] INFO [redshift-sink-connector|task-0] [Consumer clientId=connector-consumer-redshift-sink-connector-0, groupId=connect-redshift-sink-connector] Successfully joined group with generation Generation{generationId=5, memberId='connector-consumer-redshift-sink-connector-0-e58dc998-6c0d-4f16-9b0c-8e7edade93fd', protocol='range'} (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:595)
+[2024-07-10 11:58:10,455] INFO [redshift-sink-connector|task-0] [Consumer clientId=connector-consumer-redshift-sink-connector-0, groupId=connect-redshift-sink-connector] Finished assignment for group at generation 5: {connector-consumer-redshift-sink-connector-0-e58dc998-6c0d-4f16-9b0c-8e7edade93fd=Assignment(partitions=[client-0])} (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:652)
+[2024-07-10 11:58:10,490] INFO [redshift-sink-connector|task-0] [Consumer clientId=connector-consumer-redshift-sink-connector-0, groupId=connect-redshift-sink-connector] Successfully synced group in generation Generation{generationId=5, memberId='connector-consumer-redshift-sink-connector-0-e58dc998-6c0d-4f16-9b0c-8e7edade93fd', protocol='range'} (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:761)
+[2024-07-10 11:58:10,491] INFO [redshift-sink-connector|task-0] [Consumer clientId=connector-consumer-redshift-sink-connector-0, groupId=connect-redshift-sink-connector] Notifying assignor about the new Assignment(partitions=[client-0]) (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:279)
+[2024-07-10 11:58:10,494] INFO [redshift-sink-connector|task-0] [Consumer clientId=connector-consumer-redshift-sink-connector-0, groupId=connect-redshift-sink-connector] Adding newly assigned partitions: client-0 (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:291)
+[2024-07-10 11:58:10,536] INFO [redshift-sink-connector|task-0] [Consumer clientId=connector-consumer-redshift-sink-connector-0, groupId=connect-redshift-sink-connector] Setting offset for partition client-0 to the committed offset FetchPosition{offset=21, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:9092 (id: 1 rack: null)], epoch=0}} (org.apache.kafka.clients.consumer.internals.ConsumerCoordinator:844)
+[2024-07-10 11:58:11,538] INFO [redshift-sink-connector|task-0] JdbcDbWriter Connected (io.confluent.connect.jdbc.sink.JdbcDbWriter:56)
+[2024-07-10 11:58:11,778] INFO [redshift-sink-connector|task-0] Checking Generic dialect for existence of TABLE "client" (io.confluent.connect.jdbc.dialect.GenericDatabaseDialect:595)
+[2024-07-10 11:58:11,823] INFO [redshift-sink-connector|task-0] Using Generic dialect TABLE "client" present (io.confluent.connect.jdbc.dialect.GenericDatabaseDialect:603)
+[2024-07-10 11:58:11,972] INFO [redshift-sink-connector|task-0] Checking Generic dialect for type of TABLE "client" (io.confluent.connect.jdbc.dialect.GenericDatabaseDialect:889)
+[2024-07-10 11:58:12,044] INFO [redshift-sink-connector|task-0] Setting metadata for table "client" to Table{name='"client"', type=TABLE columns=[Column{'first_name', isPrimaryKey=false, allowsNull=true, sqlType=varchar}, Column{'last_name', isPrimaryKey=false, allowsNull=true, sqlType=varchar}, Column{'id', isPrimaryKey=false, allowsNull=false, sqlType=varchar}]} (io.confluent.connect.jdbc.util.TableDefinitions:64)

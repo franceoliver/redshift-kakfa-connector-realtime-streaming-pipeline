@@ -33,11 +33,15 @@ kill_port 8083
 
 # Read the parameters.toml file
 eval $(grep -A 3 "\[redshift\]" parameters.toml | grep -E "url|user|password" | awk -F '=' '{gsub(/ /, "", $0); print "export REDSHIFT_" toupper($1) "=" $2}')
+TOPICS=$(grep 'topics' parameters.toml | sed 's/topics = \[//' | sed 's/\]//' | tr -d '"' | tr -d ' ' | tr -d '\n' | xargs echo)
 
 # Export the environment variables
 export REDSHIFT_URL
 export REDSHIFT_USER
 export REDSHIFT_PASSWORD
+export TOPICS
+echo "********* TOPICS are going to be input as: $TOPICS"
+
 
 # Use a temporary file to expand the properties file
 TEMP_FILE=$(mktemp)
