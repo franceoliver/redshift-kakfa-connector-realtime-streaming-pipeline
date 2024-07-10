@@ -1,0 +1,12 @@
+Container kafka  Stopping
+Container kafka  Stopping
+Container kafka  Stopped
+Container kafka  Removing
+Container kafka  Removed
+Container zookeeper  Stopping
+Container zookeeper  Stopping
+Container zookeeper  Stopped
+Container zookeeper  Removing
+Container zookeeper  Removed
+Network real_time_streaming_pipeline_default  Removing
+Network real_time_streaming_pipeline_default  Removed
