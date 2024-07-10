@@ -10,3 +10,7 @@ batch_size = 10
 [subscriber]
 delta_path = "./delta_tables"
 
+[redshift]
+url = "jdbc:redshift://testworkgroup.767397751477.ap-southeast-2.redshift-serverless.amazonaws.com:5439/dev"
+user = "admin"
+password = "My_Secure_Password_1"
